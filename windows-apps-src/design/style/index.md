@@ -7,18 +7,18 @@ ms.topic: article
 ms.assetid: 4df395d2-f10e-4e0e-9bf2-660f82b8a9fa
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1d313e35b7d1ab3ebe72bd3a073323fe8782098a
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 7d5da19fc9fdab324db2c162a3cb6792fa91f120
+ms.sourcegitcommit: 09edf480f2224e29e190fad8518f680c16e21c6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57583778"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65065366"
 ---
-# <a name="style-for-uwp-apps"></a><span data-ttu-id="f7044-104">UWP アプリのスタイル</span><span class="sxs-lookup"><span data-stu-id="f7044-104">Style for UWP apps</span></span>
+# <a name="style-for-uwp-apps"></a><span data-ttu-id="54c58-104">UWP アプリのスタイル</span><span class="sxs-lookup"><span data-stu-id="54c58-104">Style for UWP apps</span></span>
 
-![ヒーロー イメージ](images/header-style.svg)
+![スタイル アイコン](../images/style-2x.png)
 
-<span data-ttu-id="f7044-106">アプリはスタイルによってさらに引き立ちます。ここで説明するスタイル ガイドラインは、色、文字体裁、アクリル素材や表示ハイライトなどの新機能を使用して Fluent Design を作成するのに役立ちます。</span><span class="sxs-lookup"><span data-stu-id="f7044-106">Style is what makes your app stand out. The style guidelines in this section help you create a Fluent Design through color, typography, and new features such as acrylic material and reveal highlight.</span></span>
+<span data-ttu-id="54c58-106">アプリはスタイルによってさらに引き立ちます。ここで説明するスタイル ガイドラインは、色、文字体裁、アクリル素材や表示ハイライトなどの新機能を使用して Fluent Design を作成するのに役立ちます。</span><span class="sxs-lookup"><span data-stu-id="54c58-106">Style is what makes your app stand out. The style guidelines in this section help you create a Fluent Design through color, typography, and new features such as acrylic material and reveal highlight.</span></span>
 
 :::row:::
     :::column:::
@@ -29,7 +29,7 @@ ms.locfileid: "57583778"
     :::column:::
         ![hero image](images/header-typography.svg)
         ### [Typography](typography.md)
-       <span data-ttu-id="f7044-107">言語の視覚的な表現として、文字体裁の主な役割は明確であることです。</span><span class="sxs-lookup"><span data-stu-id="f7044-107">As the visual representation of language, typography’s main task is to be clear.</span></span> <span data-ttu-id="f7044-108">スタイルによってその目的が邪魔されてはなりません。</span><span class="sxs-lookup"><span data-stu-id="f7044-108">Its style should never get in the way of that goal.</span></span> <span data-ttu-id="f7044-109">次のガイドラインでは、コンテンツをユーザーに理解しやすくするための文字体裁の使用方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="f7044-109">The following guidelines focus on how to use typography to help users understand content easily.</span></span> 
+       <span data-ttu-id="54c58-107">言語の視覚的な表現として、文字体裁の主な役割は明確であることです。</span><span class="sxs-lookup"><span data-stu-id="54c58-107">As the visual representation of language, typography’s main task is to be clear.</span></span> <span data-ttu-id="54c58-108">スタイルによってその目的が邪魔されてはなりません。</span><span class="sxs-lookup"><span data-stu-id="54c58-108">Its style should never get in the way of that goal.</span></span> <span data-ttu-id="54c58-109">次のガイドラインでは、コンテンツをユーザーに理解しやすくするための文字体裁の使用方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="54c58-109">The following guidelines focus on how to use typography to help users understand content easily.</span></span> 
     :::column-end:::
 :::row-end:::
 
