@@ -3,23 +3,26 @@ title: Windows 10 のユーザー補助機能
 description: このページは、アクセス可能な Windows アプリの開発を開始するための情報を提供します。
 ms.topic: article
 ms.date: 04/03/2019
+ms.localizationpriority: medium
+ms.author: kbridge
+author: Karl-Bridge-Microsoft
 keywords: Windows 10、アクセシビリティ、アクセシビリティを備えた WinForms アプリを構築、アクセスの WPF アプリの構築、アクセスの UWP アプリの構築、アクセス可能な win32 アプリの構築のユーザー補助機能
-ms.openlocfilehash: 2b9a6ad9157d08a802e589368a9baba592356437
-ms.sourcegitcommit: f0f933d5cf0be734373a7b03e338e65000cc3d80
+ms.openlocfilehash: b818b99ebf896b2d2de219d2eedbfd101f3a5caa
+ms.sourcegitcommit: d1c3e13de3da3f7dce878b3735ee53765d0df240
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65984522"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66214993"
 ---
-# <a name="accessibility-in-windows-10"></a><span data-ttu-id="65e51-104">Windows 10 のユーザー補助機能</span><span class="sxs-lookup"><span data-stu-id="65e51-104">Accessibility in Windows 10</span></span>
+# <a name="accessibility-in-windows-10"></a><span data-ttu-id="abdf5-104">Windows 10 のユーザー補助機能</span><span class="sxs-lookup"><span data-stu-id="abdf5-104">Accessibility in Windows 10</span></span>
 
 ![hero-accessibility-bar-smaller.png](images/hero-accessibility-bar-smaller.png)
 
-<span data-ttu-id="65e51-106">多くの人の (運転料理、まぶしく、やなどの) 状況、または可能であれば、障害、個人的な好み、特定の作業スタイルでは、これらの制約として使いやすさを向上し、包括的には、アクセシビリティ対応アプリが設計されています。</span><span class="sxs-lookup"><span data-stu-id="65e51-106">Accessible apps are designed to be inclusive by improving usability for as many people as possible, including those with disabilities, personal preferences, specific work styles, or situational constraints (such as driving, cooking, glare, and so on).</span></span>
+<span data-ttu-id="abdf5-106">多くの人の (運転料理、まぶしく、やなどの) 状況、または可能であれば、障害、個人的な好み、特定の作業スタイルでは、これらの制約として使いやすさを向上し、包括的には、アクセシビリティ対応アプリが設計されています。</span><span class="sxs-lookup"><span data-stu-id="abdf5-106">Accessible apps are designed to be inclusive by improving usability for as many people as possible, including those with disabilities, personal preferences, specific work styles, or situational constraints (such as driving, cooking, glare, and so on).</span></span>
 
-<span data-ttu-id="65e51-107">このページは、さまざまな Windows 開発フレームワークが、スクリーン リーダーと情報を読み上げたり、ソフトウェア テストなどのツールを構築する開発者を支援技術である Windows アプリケーションを構築する開発者のユーザー補助をサポートする方法の情報を提供しますエンジニアはアプリケーションのテストの自動化されたスクリプトを作成します。</span><span class="sxs-lookup"><span data-stu-id="65e51-107">This page provides information on how the various Windows development frameworks support accessibility for developers building Windows applications, assistive technology developers building tools such as screen readers and magnifiers, and software test engineers creating automated scripts for testing applications.</span></span>
+<span data-ttu-id="abdf5-107">このページは、さまざまな Windows 開発フレームワークが、スクリーン リーダーと情報を読み上げたり、ソフトウェア テストなどのツールを構築する開発者を支援技術である Windows アプリケーションを構築する開発者のユーザー補助をサポートする方法の情報を提供しますエンジニアはアプリケーションのテストの自動化されたスクリプトを作成します。</span><span class="sxs-lookup"><span data-stu-id="abdf5-107">This page provides information on how the various Windows development frameworks support accessibility for developers building Windows applications, assistive technology developers building tools such as screen readers and magnifiers, and software test engineers creating automated scripts for testing applications.</span></span>
 
-## <a name="platform-specific-documentation"></a><span data-ttu-id="65e51-108">プラットフォーム固有ドキュメント</span><span class="sxs-lookup"><span data-stu-id="65e51-108">Platform-specific documentation</span></span>
+## <a name="platform-specific-documentation"></a><span data-ttu-id="abdf5-108">プラットフォーム固有ドキュメント</span><span class="sxs-lookup"><span data-stu-id="abdf5-108">Platform-specific documentation</span></span>
 
 :::row:::
     :::column:::
