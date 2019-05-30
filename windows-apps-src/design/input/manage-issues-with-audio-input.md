@@ -8,29 +8,29 @@ keywords: スピーチ, 音声, 音声認識, 自然言語, ディクテーシ�
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: 5d2c80fd30d158f0890ed70311cdf83dce2058e5
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: aef21bc72c7458aecc3ea8f0a3cae275a22d9f08
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57644907"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66365614"
 ---
-# <a name="manage-issues-with-audio-input"></a><span data-ttu-id="7addb-104">音声入力の問題の管理</span><span class="sxs-lookup"><span data-stu-id="7addb-104">Manage issues with audio input</span></span>
+# <a name="manage-issues-with-audio-input"></a><span data-ttu-id="d7f80-104">音声入力の問題の管理</span><span class="sxs-lookup"><span data-stu-id="d7f80-104">Manage issues with audio input</span></span>
 
 
-<span data-ttu-id="7addb-105">オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="7addb-105">Learn how to manage issues with speech-recognition accuracy caused by audio-input quality.</span></span>
+<span data-ttu-id="d7f80-105">オーディオ入力の品質が原因で発生する音声認識の精度の問題を管理する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="d7f80-105">Learn how to manage issues with speech-recognition accuracy caused by audio-input quality.</span></span>
 
-> <span data-ttu-id="7addb-106">**重要な API**:[**れている SpeechRecognizer**](https://msdn.microsoft.com/library/windows/apps/dn653226)、 [ **RecognitionQualityDegrading**](https://msdn.microsoft.com/library/windows/apps/dn653243)、 [ **SpeechRecognitionAudioProblem**](https://msdn.microsoft.com/library/windows/apps/dn631406)</span><span class="sxs-lookup"><span data-stu-id="7addb-106">**Important APIs**: [**SpeechRecognizer**](https://msdn.microsoft.com/library/windows/apps/dn653226), [**RecognitionQualityDegrading**](https://msdn.microsoft.com/library/windows/apps/dn653243), [**SpeechRecognitionAudioProblem**](https://msdn.microsoft.com/library/windows/apps/dn631406)</span></span>
-
-
-## <a name="assess-audio-input-quality"></a><span data-ttu-id="7addb-107">オーディオ入力の品質を評価する</span><span class="sxs-lookup"><span data-stu-id="7addb-107">Assess audio-input quality</span></span>
+> <span data-ttu-id="d7f80-106">**重要な API**:[**SpeechRecognizer**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer), [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading), [**SpeechRecognitionAudioProblem**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem)</span><span class="sxs-lookup"><span data-stu-id="d7f80-106">**Important APIs**: [**SpeechRecognizer**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognizer), [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading), [**SpeechRecognitionAudioProblem**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem)</span></span>
 
 
-<span data-ttu-id="7addb-108">音声認識がアクティブな場合は、音声認識エンジンの [**RecognitionQualityDegrading**](https://msdn.microsoft.com/library/windows/apps/dn653243) イベントを使用して、1 つ以上のオーディオの問題によって音声入力が妨げられている可能性があるかどうかを判断します。</span><span class="sxs-lookup"><span data-stu-id="7addb-108">When speech recognition is active, use the [**RecognitionQualityDegrading**](https://msdn.microsoft.com/library/windows/apps/dn653243) event of your speech recognizer to determine whether one or more audio issues might be interfering with speech input.</span></span> <span data-ttu-id="7addb-109">イベント引数 ([**SpeechRecognitionQualityDegradingEventArgs**](https://msdn.microsoft.com/library/windows/apps/dn631430)) には、[**Problem**](https://msdn.microsoft.com/library/windows/apps/dn631431) プロパティがあり、オーディオ入力で検出された問題の説明が含まれています。</span><span class="sxs-lookup"><span data-stu-id="7addb-109">The event argument ([**SpeechRecognitionQualityDegradingEventArgs**](https://msdn.microsoft.com/library/windows/apps/dn631430)) provides the [**Problem**](https://msdn.microsoft.com/library/windows/apps/dn631431) property, which describes the issues detected with the audio input.</span></span>
+## <a name="assess-audio-input-quality"></a><span data-ttu-id="d7f80-107">オーディオ入力の品質を評価する</span><span class="sxs-lookup"><span data-stu-id="d7f80-107">Assess audio-input quality</span></span>
 
-<span data-ttu-id="7addb-110">認識は、多すぎる背景の雑音、ミュートされたマイク、およびスピーカーのボリュームや速度の影響を受ける場合があります。</span><span class="sxs-lookup"><span data-stu-id="7addb-110">Recognition can be affected by too much background noise, a muted microphone, and the volume or speed of the speaker.</span></span>
 
-<span data-ttu-id="7addb-111">ここでは、音声認識エンジンを構成し、[**RecognitionQualityDegrading**](https://msdn.microsoft.com/library/windows/apps/dn653243) イベントのリッスンを開始します。</span><span class="sxs-lookup"><span data-stu-id="7addb-111">Here, we configure a speech recognizer and start listening for the [**RecognitionQualityDegrading**](https://msdn.microsoft.com/library/windows/apps/dn653243) event.</span></span>
+<span data-ttu-id="d7f80-108">音声認識がアクティブな場合は、音声認識エンジンの [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベントを使用して、1 つ以上のオーディオの問題によって音声入力が妨げられている可能性があるかどうかを判断します。</span><span class="sxs-lookup"><span data-stu-id="d7f80-108">When speech recognition is active, use the [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) event of your speech recognizer to determine whether one or more audio issues might be interfering with speech input.</span></span> <span data-ttu-id="d7f80-109">イベント引数 ([**SpeechRecognitionQualityDegradingEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs)) には、[**Problem**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionqualitydegradingeventargs.problem) プロパティがあり、オーディオ入力で検出された問題の説明が含まれています。</span><span class="sxs-lookup"><span data-stu-id="d7f80-109">The event argument ([**SpeechRecognitionQualityDegradingEventArgs**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs)) provides the [**Problem**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionqualitydegradingeventargs.problem) property, which describes the issues detected with the audio input.</span></span>
+
+<span data-ttu-id="d7f80-110">認識は、多すぎる背景の雑音、ミュートされたマイク、およびスピーカーのボリュームや速度の影響を受ける場合があります。</span><span class="sxs-lookup"><span data-stu-id="d7f80-110">Recognition can be affected by too much background noise, a muted microphone, and the volume or speed of the speaker.</span></span>
+
+<span data-ttu-id="d7f80-111">ここでは、音声認識エンジンを構成し、[**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベントのリッスンを開始します。</span><span class="sxs-lookup"><span data-stu-id="d7f80-111">Here, we configure a speech recognizer and start listening for the [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) event.</span></span>
 
 ```CSharp
 private async void WeatherSearch_Click(object sender, RoutedEventArgs e)
@@ -62,12 +62,12 @@ private async void WeatherSearch_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-## <a name="manage-the-speech-recognition-experience"></a><span data-ttu-id="7addb-112">音声認識エクスペリエンスを管理する</span><span class="sxs-lookup"><span data-stu-id="7addb-112">Manage the speech-recognition experience</span></span>
+## <a name="manage-the-speech-recognition-experience"></a><span data-ttu-id="d7f80-112">音声認識エクスペリエンスを管理する</span><span class="sxs-lookup"><span data-stu-id="d7f80-112">Manage the speech-recognition experience</span></span>
 
 
-<span data-ttu-id="7addb-113">[  **Problem**](https://msdn.microsoft.com/library/windows/apps/dn631431) プロパティにある説明を使用して、ユーザーが認識の状態を改善できるようにします。</span><span class="sxs-lookup"><span data-stu-id="7addb-113">Use the description provided by the [**Problem**](https://msdn.microsoft.com/library/windows/apps/dn631431) property to help the user improve conditions for recognition.</span></span>
+<span data-ttu-id="d7f80-113">[  **Problem**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionqualitydegradingeventargs.problem) プロパティにある説明を使用して、ユーザーが認識の状態を改善できるようにします。</span><span class="sxs-lookup"><span data-stu-id="d7f80-113">Use the description provided by the [**Problem**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognitionqualitydegradingeventargs.problem) property to help the user improve conditions for recognition.</span></span>
 
-<span data-ttu-id="7addb-114">ここでは、低い音量レベルをチェックする [**RecognitionQualityDegrading**](https://msdn.microsoft.com/library/windows/apps/dn653243) イベント用のハンドラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="7addb-114">Here, we create a handler for the [**RecognitionQualityDegrading**](https://msdn.microsoft.com/library/windows/apps/dn653243) event that checks for a low volume level.</span></span> <span data-ttu-id="7addb-115">次に、[**SpeechSynthesizer**](https://msdn.microsoft.com/library/windows/apps/dn298152) オブジェクトを使って、より大きな声で話すことをユーザーに提示します。</span><span class="sxs-lookup"><span data-stu-id="7addb-115">We then use a [**SpeechSynthesizer**](https://msdn.microsoft.com/library/windows/apps/dn298152) object to suggest that the user try speaking louder.</span></span>
+<span data-ttu-id="d7f80-114">ここでは、低い音量レベルをチェックする [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) イベント用のハンドラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="d7f80-114">Here, we create a handler for the [**RecognitionQualityDegrading**](https://docs.microsoft.com/uwp/api/windows.media.speechrecognition.speechrecognizer.recognitionqualitydegrading) event that checks for a low volume level.</span></span> <span data-ttu-id="d7f80-115">次に、[**SpeechSynthesizer**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechSynthesis.SpeechSynthesizer) オブジェクトを使って、より大きな声で話すことをユーザーに提示します。</span><span class="sxs-lookup"><span data-stu-id="d7f80-115">We then use a [**SpeechSynthesizer**](https://docs.microsoft.com/uwp/api/Windows.Media.SpeechSynthesis.SpeechSynthesizer) object to suggest that the user try speaking louder.</span></span>
 
 ```CSharp
 private async void speechRecognizer_RecognitionQualityDegrading(
@@ -102,13 +102,13 @@ private async void speechRecognizer_RecognitionQualityDegrading(
 }
 ```
 
-## <a name="related-articles"></a><span data-ttu-id="7addb-116">関連記事</span><span class="sxs-lookup"><span data-stu-id="7addb-116">Related articles</span></span>
+## <a name="related-articles"></a><span data-ttu-id="d7f80-116">関連記事</span><span class="sxs-lookup"><span data-stu-id="d7f80-116">Related articles</span></span>
 
 
-* [<span data-ttu-id="7addb-117">音声操作</span><span class="sxs-lookup"><span data-stu-id="7addb-117">Speech interactions</span></span>](speech-interactions.md)
+* [<span data-ttu-id="d7f80-117">音声操作</span><span class="sxs-lookup"><span data-stu-id="d7f80-117">Speech interactions</span></span>](speech-interactions.md)
 
-<span data-ttu-id="7addb-118">**サンプル**</span><span class="sxs-lookup"><span data-stu-id="7addb-118">**Samples**</span></span>
-* [<span data-ttu-id="7addb-119">音声認識と音声合成のサンプル</span><span class="sxs-lookup"><span data-stu-id="7addb-119">Speech recognition and speech synthesis sample</span></span>](https://go.microsoft.com/fwlink/p/?LinkID=619897)
+<span data-ttu-id="d7f80-118">**サンプル**</span><span class="sxs-lookup"><span data-stu-id="d7f80-118">**Samples**</span></span>
+* [<span data-ttu-id="d7f80-119">音声認識と音声合成のサンプル</span><span class="sxs-lookup"><span data-stu-id="d7f80-119">Speech recognition and speech synthesis sample</span></span>](https://go.microsoft.com/fwlink/p/?LinkID=619897)
  
 
  

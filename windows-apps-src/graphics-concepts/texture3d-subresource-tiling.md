@@ -7,42 +7,42 @@ keywords:
 ms.date: 02/08/2017
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: c9c232bc60bbbb3cccc16618d82ec23452c58ee8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 5b63fdeeffd4b95afab6556b6f0318732ff988b0
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57645957"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66370902"
 ---
-# <a name="texture3d-subresource-tiling"></a><span data-ttu-id="9d1c6-104">Texture3D サブリソースのタイル表示</span><span class="sxs-lookup"><span data-stu-id="9d1c6-104">Texture3D subresource tiling</span></span>
+# <a name="texture3d-subresource-tiling"></a><span data-ttu-id="c79fd-104">Texture3D サブリソースのタイル表示</span><span class="sxs-lookup"><span data-stu-id="c79fd-104">Texture3D subresource tiling</span></span>
 
 
-<span data-ttu-id="9d1c6-105">次の表に、[**Texture3D**](https://msdn.microsoft.com/library/windows/desktop/ff471562) サブリソースがどのようにタイル表示されるかを示します。</span><span class="sxs-lookup"><span data-stu-id="9d1c6-105">This table shows how [**Texture3D**](https://msdn.microsoft.com/library/windows/desktop/ff471562) subresources are tiled.</span></span> <span data-ttu-id="9d1c6-106">この表の値は、テール ミップ パッキングをカウントしていません。</span><span class="sxs-lookup"><span data-stu-id="9d1c6-106">The values in this table don't count tail mip packing.</span></span>
+<span data-ttu-id="c79fd-105">次の表に、[**Texture3D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture3d) サブリソースがどのようにタイル表示されるかを示します。</span><span class="sxs-lookup"><span data-stu-id="c79fd-105">This table shows how [**Texture3D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture3d) subresources are tiled.</span></span> <span data-ttu-id="c79fd-106">この表の値は、テール ミップ パッキングをカウントしていません。</span><span class="sxs-lookup"><span data-stu-id="c79fd-106">The values in this table don't count tail mip packing.</span></span>
 
-<span data-ttu-id="9d1c6-107">次の表では、[**Texture2D**](https://msdn.microsoft.com/library/windows/desktop/ff471525) のタイル表示を受け取り、x/y 次元をそれぞれ 4 で割り、16 レイヤーの深度を追加します。</span><span class="sxs-lookup"><span data-stu-id="9d1c6-107">This table takes the [**Texture2D**](https://msdn.microsoft.com/library/windows/desktop/ff471525) tiling and divides the x/y dimensions by 4 each and adds 16 layers of depth.</span></span> <span data-ttu-id="9d1c6-108">最初の平面 (最初の 16 レイヤーの深度を定義するタイルの 2D 平面) のすべてのタイルが、後続の平面の前に表示されます。</span><span class="sxs-lookup"><span data-stu-id="9d1c6-108">All the tiles for the first plane (2D plane of tiles defining the first 16 layers of depth) appear before the subsequent planes.</span></span>
+<span data-ttu-id="c79fd-107">次の表では、[**Texture2D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) のタイル表示を受け取り、x/y 次元をそれぞれ 4 で割り、16 レイヤーの深度を追加します。</span><span class="sxs-lookup"><span data-stu-id="c79fd-107">This table takes the [**Texture2D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture2d) tiling and divides the x/y dimensions by 4 each and adds 16 layers of depth.</span></span> <span data-ttu-id="c79fd-108">最初の平面 (最初の 16 レイヤーの深度を定義するタイルの 2D 平面) のすべてのタイルが、後続の平面の前に表示されます。</span><span class="sxs-lookup"><span data-stu-id="c79fd-108">All the tiles for the first plane (2D plane of tiles defining the first 16 layers of depth) appear before the subsequent planes.</span></span>
 
-<span data-ttu-id="9d1c6-109">**注** ストリーミング リソースでの   [**Texture3D**](https://msdn.microsoft.com/library/windows/desktop/ff471562) のサポートは、ストリーミング リソースの最初の実装では公開されませんが、今後のリリースでのサポートに備えて必要なタイル形状をここに示します。</span><span class="sxs-lookup"><span data-stu-id="9d1c6-109">**Note**  [**Texture3D**](https://msdn.microsoft.com/library/windows/desktop/ff471562) support in streaming resources isn't exposed in the initial implementation of streaming resources, but the desired tile shapes are listed here for possible support in a future release.</span></span>
+<span data-ttu-id="c79fd-109">**注** ストリーミング リソースでの   [**Texture3D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture3d) のサポートは、ストリーミング リソースの最初の実装では公開されませんが、今後のリリースでのサポートに備えて必要なタイル形状をここに示します。</span><span class="sxs-lookup"><span data-stu-id="c79fd-109">**Note**  [**Texture3D**](https://docs.microsoft.com/windows/desktop/direct3dhlsl/sm5-object-texture3d) support in streaming resources isn't exposed in the initial implementation of streaming resources, but the desired tile shapes are listed here for possible support in a future release.</span></span>
 
  
 
-| <span data-ttu-id="9d1c6-110">ビット/ピクセル (1 サンプル/ピクセル)</span><span class="sxs-lookup"><span data-stu-id="9d1c6-110">Bits/Pixel (1 sample/pixel)</span></span> | <span data-ttu-id="9d1c6-111">タイルの寸法 (ピクセル、W x H x D)</span><span class="sxs-lookup"><span data-stu-id="9d1c6-111">Tile Dimensions (Pixels, WxHxD)</span></span> |
+| <span data-ttu-id="c79fd-110">ビット/ピクセル (1 サンプル/ピクセル)</span><span class="sxs-lookup"><span data-stu-id="c79fd-110">Bits/Pixel (1 sample/pixel)</span></span> | <span data-ttu-id="c79fd-111">タイルの寸法 (ピクセル、W x H x D)</span><span class="sxs-lookup"><span data-stu-id="c79fd-111">Tile Dimensions (Pixels, WxHxD)</span></span> |
 |-----------------------------|---------------------------------|
-| <span data-ttu-id="9d1c6-112">8</span><span class="sxs-lookup"><span data-stu-id="9d1c6-112">8</span></span>                           | <span data-ttu-id="9d1c6-113">64 x 32 x 32</span><span class="sxs-lookup"><span data-stu-id="9d1c6-113">64x32x32</span></span>                        |
-| <span data-ttu-id="9d1c6-114">16</span><span class="sxs-lookup"><span data-stu-id="9d1c6-114">16</span></span>                          | <span data-ttu-id="9d1c6-115">32 x 32 x 32</span><span class="sxs-lookup"><span data-stu-id="9d1c6-115">32x32x32</span></span>                        |
-| <span data-ttu-id="9d1c6-116">32</span><span class="sxs-lookup"><span data-stu-id="9d1c6-116">32</span></span>                          | <span data-ttu-id="9d1c6-117">32 x 32 x 16</span><span class="sxs-lookup"><span data-stu-id="9d1c6-117">32x32x16</span></span>                        |
-| <span data-ttu-id="9d1c6-118">64</span><span class="sxs-lookup"><span data-stu-id="9d1c6-118">64</span></span>                          | <span data-ttu-id="9d1c6-119">32 x 16 x 16</span><span class="sxs-lookup"><span data-stu-id="9d1c6-119">32x16x16</span></span>                        |
-| <span data-ttu-id="9d1c6-120">128</span><span class="sxs-lookup"><span data-stu-id="9d1c6-120">128</span></span>                         | <span data-ttu-id="9d1c6-121">16 x 16 x 16</span><span class="sxs-lookup"><span data-stu-id="9d1c6-121">16x16x16</span></span>                        |
-| <span data-ttu-id="9d1c6-122">BC1、4</span><span class="sxs-lookup"><span data-stu-id="9d1c6-122">BC1,4</span></span>                       | <span data-ttu-id="9d1c6-123">128 x 64 x 16</span><span class="sxs-lookup"><span data-stu-id="9d1c6-123">128x64x16</span></span>                       |
-| <span data-ttu-id="9d1c6-124">BC2、3、5、6、7</span><span class="sxs-lookup"><span data-stu-id="9d1c6-124">BC2,3,5,6,7</span></span>                 | <span data-ttu-id="9d1c6-125">64 x 64 x 16</span><span class="sxs-lookup"><span data-stu-id="9d1c6-125">64x64x16</span></span>                        |
+| <span data-ttu-id="c79fd-112">8</span><span class="sxs-lookup"><span data-stu-id="c79fd-112">8</span></span>                           | <span data-ttu-id="c79fd-113">64 x 32 x 32</span><span class="sxs-lookup"><span data-stu-id="c79fd-113">64x32x32</span></span>                        |
+| <span data-ttu-id="c79fd-114">16</span><span class="sxs-lookup"><span data-stu-id="c79fd-114">16</span></span>                          | <span data-ttu-id="c79fd-115">32 x 32 x 32</span><span class="sxs-lookup"><span data-stu-id="c79fd-115">32x32x32</span></span>                        |
+| <span data-ttu-id="c79fd-116">32</span><span class="sxs-lookup"><span data-stu-id="c79fd-116">32</span></span>                          | <span data-ttu-id="c79fd-117">32 x 32 x 16</span><span class="sxs-lookup"><span data-stu-id="c79fd-117">32x32x16</span></span>                        |
+| <span data-ttu-id="c79fd-118">64</span><span class="sxs-lookup"><span data-stu-id="c79fd-118">64</span></span>                          | <span data-ttu-id="c79fd-119">32 x 16 x 16</span><span class="sxs-lookup"><span data-stu-id="c79fd-119">32x16x16</span></span>                        |
+| <span data-ttu-id="c79fd-120">128</span><span class="sxs-lookup"><span data-stu-id="c79fd-120">128</span></span>                         | <span data-ttu-id="c79fd-121">16 x 16 x 16</span><span class="sxs-lookup"><span data-stu-id="c79fd-121">16x16x16</span></span>                        |
+| <span data-ttu-id="c79fd-122">BC1、4</span><span class="sxs-lookup"><span data-stu-id="c79fd-122">BC1,4</span></span>                       | <span data-ttu-id="c79fd-123">128 x 64 x 16</span><span class="sxs-lookup"><span data-stu-id="c79fd-123">128x64x16</span></span>                       |
+| <span data-ttu-id="c79fd-124">BC2、3、5、6、7</span><span class="sxs-lookup"><span data-stu-id="c79fd-124">BC2,3,5,6,7</span></span>                 | <span data-ttu-id="c79fd-125">64 x 64 x 16</span><span class="sxs-lookup"><span data-stu-id="c79fd-125">64x64x16</span></span>                        |
 
  
 
-<span data-ttu-id="9d1c6-126">ストリームのリソースではサポートされていません形式のビット数は 96 の bpp 形式、ビデオ形式は、DXGI\_形式\_R1\_UNORM、DXGI\_形式\_R8G8\_B8G8\_UNORM、DXGI\_形式\_R8R8\_G8B8\_UNORM します。</span><span class="sxs-lookup"><span data-stu-id="9d1c6-126">Format bit counts not supported with streaming resources are 96 bpp formats, video formats, DXGI\_FORMAT\_R1\_UNORM, DXGI\_FORMAT\_R8G8\_B8G8\_UNORM, and DXGI\_FORMAT\_R8R8\_G8B8\_UNORM.</span></span>
+<span data-ttu-id="c79fd-126">ストリームのリソースではサポートされていません形式のビット数は 96 の bpp 形式、ビデオ形式は、DXGI\_形式\_R1\_UNORM、DXGI\_形式\_R8G8\_B8G8\_UNORM、DXGI\_形式\_R8R8\_G8B8\_UNORM します。</span><span class="sxs-lookup"><span data-stu-id="c79fd-126">Format bit counts not supported with streaming resources are 96 bpp formats, video formats, DXGI\_FORMAT\_R1\_UNORM, DXGI\_FORMAT\_R8G8\_B8G8\_UNORM, and DXGI\_FORMAT\_R8R8\_G8B8\_UNORM.</span></span>
 
-## <a name="span-idrelated-topicsspanrelated-topics"></a><span data-ttu-id="9d1c6-127"><span id="related-topics"></span>関連トピック</span><span class="sxs-lookup"><span data-stu-id="9d1c6-127"><span id="related-topics"></span>Related topics</span></span>
+## <a name="span-idrelated-topicsspanrelated-topics"></a><span data-ttu-id="c79fd-127"><span id="related-topics"></span>関連トピック</span><span class="sxs-lookup"><span data-stu-id="c79fd-127"><span id="related-topics"></span>Related topics</span></span>
 
 
-[<span data-ttu-id="9d1c6-128">ストリーミングのリソースの領域は並べて表示する方法</span><span class="sxs-lookup"><span data-stu-id="9d1c6-128">How a streaming resource's area is tiled</span></span>](how-a-streaming-resource-s-area-is-tiled.md)
+[<span data-ttu-id="c79fd-128">ストリーミングのリソースの領域は並べて表示する方法</span><span class="sxs-lookup"><span data-stu-id="c79fd-128">How a streaming resource's area is tiled</span></span>](how-a-streaming-resource-s-area-is-tiled.md)
 
  
 

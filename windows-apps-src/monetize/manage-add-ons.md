@@ -6,18 +6,18 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10, UWP, Microsoft Store 申請 API, アドオン, アプリ内製品, IAP
 ms.localizationpriority: medium
-ms.openlocfilehash: 51c940fffde3c770f397999e566570410528a1e8
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 8e06f8e915466f116692c63df5c53c2a0f97447f
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57617827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66372496"
 ---
-# <a name="manage-add-ons"></a><span data-ttu-id="095b9-104">アドオンの管理</span><span class="sxs-lookup"><span data-stu-id="095b9-104">Manage add-ons</span></span>
+# <a name="manage-add-ons"></a><span data-ttu-id="eb1a6-104">アドオンの管理</span><span class="sxs-lookup"><span data-stu-id="eb1a6-104">Manage add-ons</span></span>
 
-<span data-ttu-id="095b9-105">アプリのアドオンを管理するには、Microsoft Store 申請 API の以下のメソッドを使います。</span><span class="sxs-lookup"><span data-stu-id="095b9-105">Use the following methods in the Microsoft Store submission API to manage add-ons for your apps.</span></span> <span data-ttu-id="095b9-106">Microsoft Store 申請 API の概要については、「[Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)」をご覧ください。この API を使用するための前提条件などの情報があります。</span><span class="sxs-lookup"><span data-stu-id="095b9-106">For an introduction to the Microsoft Store submission API, including prerequisites for using the API, see [Create and manage submissions using Microsoft Store services](create-and-manage-submissions-using-windows-store-services.md).</span></span>
+<span data-ttu-id="eb1a6-105">アプリのアドオンを管理するには、Microsoft Store 申請 API の以下のメソッドを使います。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-105">Use the following methods in the Microsoft Store submission API to manage add-ons for your apps.</span></span> <span data-ttu-id="eb1a6-106">Microsoft Store 申請 API の概要については、「[Microsoft Store サービスを使用した申請の作成と管理](create-and-manage-submissions-using-windows-store-services.md)」をご覧ください。この API を使用するための前提条件などの情報があります。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-106">For an introduction to the Microsoft Store submission API, including prerequisites for using the API, see [Create and manage submissions using Microsoft Store services](create-and-manage-submissions-using-windows-store-services.md).</span></span>
 
-<span data-ttu-id="095b9-107">以下のメソッドは、アドオンの取得、作成、または削除にしか使用できません。</span><span class="sxs-lookup"><span data-stu-id="095b9-107">These methods can only be used to get, create, or delete add-ons.</span></span> <span data-ttu-id="095b9-108">アドオンの申請を作成する方法については、「[アドオンの申請の管理](manage-add-on-submissions.md)」のメソッドをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="095b9-108">To create submissions for add-ons, see the methods in [Manage add-on submissions](manage-add-on-submissions.md).</span></span>
+<span data-ttu-id="eb1a6-107">以下のメソッドは、アドオンの取得、作成、または削除にしか使用できません。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-107">These methods can only be used to get, create, or delete add-ons.</span></span> <span data-ttu-id="eb1a6-108">アドオンの申請を作成する方法については、「[アドオンの申請の管理](manage-add-on-submissions.md)」のメソッドをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-108">To create submissions for add-ons, see the methods in [Manage add-on submissions](manage-add-on-submissions.md).</span></span>
 
 <table>
 <colgroup>
@@ -27,48 +27,48 @@ ms.locfileid: "57617827"
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left"><span data-ttu-id="095b9-109">メソッド</span><span class="sxs-lookup"><span data-stu-id="095b9-109">Method</span></span></th>
-<th align="left"><span data-ttu-id="095b9-110">URI</span><span class="sxs-lookup"><span data-stu-id="095b9-110">URI</span></span></th>
-<th align="left"><span data-ttu-id="095b9-111">説明</span><span class="sxs-lookup"><span data-stu-id="095b9-111">Description</span></span></th>
+<th align="left"><span data-ttu-id="eb1a6-109">メソッド</span><span class="sxs-lookup"><span data-stu-id="eb1a6-109">Method</span></span></th>
+<th align="left"><span data-ttu-id="eb1a6-110">URI</span><span class="sxs-lookup"><span data-stu-id="eb1a6-110">URI</span></span></th>
+<th align="left"><span data-ttu-id="eb1a6-111">説明</span><span class="sxs-lookup"><span data-stu-id="eb1a6-111">Description</span></span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><span data-ttu-id="095b9-112">GET</span><span class="sxs-lookup"><span data-stu-id="095b9-112">GET</span></span></td>
+<td align="left"><span data-ttu-id="eb1a6-112">GET</span><span class="sxs-lookup"><span data-stu-id="eb1a6-112">GET</span></span></td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts</td>
-<td align="left"><span data-ttu-id="095b9-113"><a href="get-all-add-ons.md">アプリのすべてのアドオンを入手します。</a></span><span class="sxs-lookup"><span data-stu-id="095b9-113"><a href="get-all-add-ons.md">Get all add-ons for your apps</a></span></span></td>
+<td align="left"><span data-ttu-id="eb1a6-113"><a href="get-all-add-ons.md">アプリのすべてのアドオンを入手します。</a></span><span class="sxs-lookup"><span data-stu-id="eb1a6-113"><a href="get-all-add-ons.md">Get all add-ons for your apps</a></span></span></td>
 </tr>
 <tr>
-<td align="left"><span data-ttu-id="095b9-114">GET</span><span class="sxs-lookup"><span data-stu-id="095b9-114">GET</span></span></td>
+<td align="left"><span data-ttu-id="eb1a6-114">GET</span><span class="sxs-lookup"><span data-stu-id="eb1a6-114">GET</span></span></td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{inAppProductId}</td>
-<td align="left"><span data-ttu-id="095b9-115"><a href="get-an-add-on.md">特定のアドオンを取得します。</a></span><span class="sxs-lookup"><span data-stu-id="095b9-115"><a href="get-an-add-on.md">Get a specific add-on</a></span></span></td>
+<td align="left"><span data-ttu-id="eb1a6-115"><a href="get-an-add-on.md">特定のアドオンを取得します。</a></span><span class="sxs-lookup"><span data-stu-id="eb1a6-115"><a href="get-an-add-on.md">Get a specific add-on</a></span></span></td>
 </tr>
 <tr>
-<td align="left"><span data-ttu-id="095b9-116">POST</span><span class="sxs-lookup"><span data-stu-id="095b9-116">POST</span></span></td>
+<td align="left"><span data-ttu-id="eb1a6-116">POST</span><span class="sxs-lookup"><span data-stu-id="eb1a6-116">POST</span></span></td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts</td>
-<td align="left"><span data-ttu-id="095b9-117"><a href="create-an-add-on.md">アドオンを作成します。</a></span><span class="sxs-lookup"><span data-stu-id="095b9-117"><a href="create-an-add-on.md">Create an add-on</a></span></span></td>
+<td align="left"><span data-ttu-id="eb1a6-117"><a href="create-an-add-on.md">アドオンを作成します。</a></span><span class="sxs-lookup"><span data-stu-id="eb1a6-117"><a href="create-an-add-on.md">Create an add-on</a></span></span></td>
 </tr>
 <tr>
-<td align="left"><span data-ttu-id="095b9-118">Del</span><span class="sxs-lookup"><span data-stu-id="095b9-118">DELETE</span></span></td>
+<td align="left"><span data-ttu-id="eb1a6-118">Del</span><span class="sxs-lookup"><span data-stu-id="eb1a6-118">DELETE</span></span></td>
 <td align="left">https://manage.devcenter.microsoft.com/v1.0/my/inappproducts/{inAppProductId}</td>
-<td align="left"><span data-ttu-id="095b9-119"><a href="delete-an-add-on.md">アドオンを削除します。</a></span><span class="sxs-lookup"><span data-stu-id="095b9-119"><a href="delete-an-add-on.md">Delete an add-on</a></span></span></td>
+<td align="left"><span data-ttu-id="eb1a6-119"><a href="delete-an-add-on.md">アドオンを削除します。</a></span><span class="sxs-lookup"><span data-stu-id="eb1a6-119"><a href="delete-an-add-on.md">Delete an add-on</a></span></span></td>
 </tr>
 </tbody>
 </table>
 
-## <a name="prerequisites"></a><span data-ttu-id="095b9-120">前提条件</span><span class="sxs-lookup"><span data-stu-id="095b9-120">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="eb1a6-120">前提条件</span><span class="sxs-lookup"><span data-stu-id="eb1a6-120">Prerequisites</span></span>
 
-<span data-ttu-id="095b9-121">Microsoft Store 申請 API に関するすべての[前提条件](create-and-manage-submissions-using-windows-store-services.md#prerequisites)がまだ満たされていない場合は、ここに記載されているメソッドを使用する前に前提条件を整えてください。</span><span class="sxs-lookup"><span data-stu-id="095b9-121">If you have not done so already, complete all the [prerequisites](create-and-manage-submissions-using-windows-store-services.md#prerequisites) for the Microsoft Store submission API before trying to use any of these methods.</span></span>
+<span data-ttu-id="eb1a6-121">Microsoft Store 申請 API に関するすべての[前提条件](create-and-manage-submissions-using-windows-store-services.md#prerequisites)がまだ満たされていない場合は、ここに記載されているメソッドを使用する前に前提条件を整えてください。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-121">If you have not done so already, complete all the [prerequisites](create-and-manage-submissions-using-windows-store-services.md#prerequisites) for the Microsoft Store submission API before trying to use any of these methods.</span></span>
 
-## <a name="data-resources"></a><span data-ttu-id="095b9-122">データ リソース</span><span class="sxs-lookup"><span data-stu-id="095b9-122">Data resources</span></span>
+## <a name="data-resources"></a><span data-ttu-id="eb1a6-122">データ リソース</span><span class="sxs-lookup"><span data-stu-id="eb1a6-122">Data resources</span></span>
 
-<span data-ttu-id="095b9-123">アドオンを管理するための Microsoft Store 申請 API のメソッドでは、次の JSON データ リソースが使われます。</span><span class="sxs-lookup"><span data-stu-id="095b9-123">The Microsoft Store submission API methods for managing add-ons use the following JSON data resources.</span></span>
+<span data-ttu-id="eb1a6-123">アドオンを管理するための Microsoft Store 申請 API のメソッドでは、次の JSON データ リソースが使われます。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-123">The Microsoft Store submission API methods for managing add-ons use the following JSON data resources.</span></span>
 
 <span id="add-on-object" />
 
-### <a name="add-on-resource"></a><span data-ttu-id="095b9-124">アドオン リソース</span><span class="sxs-lookup"><span data-stu-id="095b9-124">Add-on resource</span></span>
+### <a name="add-on-resource"></a><span data-ttu-id="eb1a6-124">アドオン リソース</span><span class="sxs-lookup"><span data-stu-id="eb1a6-124">Add-on resource</span></span>
 
-<span data-ttu-id="095b9-125">このリソースは、アドオンを記述しています。</span><span class="sxs-lookup"><span data-stu-id="095b9-125">This resource describes an add-on.</span></span>
+<span data-ttu-id="eb1a6-125">このリソースは、アドオンを記述しています。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-125">This resource describes an add-on.</span></span>
 
 ```json
 {
@@ -95,22 +95,22 @@ ms.locfileid: "57617827"
 }
 ```
 
-<span data-ttu-id="095b9-126">このリソースには、次の値があります。</span><span class="sxs-lookup"><span data-stu-id="095b9-126">This resource has the following values.</span></span>
+<span data-ttu-id="eb1a6-126">このリソースには、次の値があります。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-126">This resource has the following values.</span></span>
 
-| <span data-ttu-id="095b9-127">値</span><span class="sxs-lookup"><span data-stu-id="095b9-127">Value</span></span>      | <span data-ttu-id="095b9-128">種類</span><span class="sxs-lookup"><span data-stu-id="095b9-128">Type</span></span>   | <span data-ttu-id="095b9-129">説明</span><span class="sxs-lookup"><span data-stu-id="095b9-129">Description</span></span>        |
+| <span data-ttu-id="eb1a6-127">Value</span><span class="sxs-lookup"><span data-stu-id="eb1a6-127">Value</span></span>      | <span data-ttu-id="eb1a6-128">種類</span><span class="sxs-lookup"><span data-stu-id="eb1a6-128">Type</span></span>   | <span data-ttu-id="eb1a6-129">説明</span><span class="sxs-lookup"><span data-stu-id="eb1a6-129">Description</span></span>        |
 |------------|--------|--------------|
-| <span data-ttu-id="095b9-130">applications</span><span class="sxs-lookup"><span data-stu-id="095b9-130">applications</span></span>      | <span data-ttu-id="095b9-131">array</span><span class="sxs-lookup"><span data-stu-id="095b9-131">array</span></span>  | <span data-ttu-id="095b9-132">このアドオンが関連付けられるアプリを表す 1 つの[アプリケーション リソース](#application-object)を格納する配列です。</span><span class="sxs-lookup"><span data-stu-id="095b9-132">An array that contains one [application resource](#application-object) that represents the app that this add-on is associated with.</span></span> <span data-ttu-id="095b9-133">この配列でサポートされる項目は 1 つのみです。</span><span class="sxs-lookup"><span data-stu-id="095b9-133">Only one item is supported in this array.</span></span>  |
-| <span data-ttu-id="095b9-134">id</span><span class="sxs-lookup"><span data-stu-id="095b9-134">id</span></span> | <span data-ttu-id="095b9-135">string</span><span class="sxs-lookup"><span data-stu-id="095b9-135">string</span></span>  | <span data-ttu-id="095b9-136">アドオンのストア ID です。</span><span class="sxs-lookup"><span data-stu-id="095b9-136">The Store ID of the add-on.</span></span> <span data-ttu-id="095b9-137">この値は、ストアによって提供されます。</span><span class="sxs-lookup"><span data-stu-id="095b9-137">This value is supplied by the Store.</span></span> <span data-ttu-id="095b9-138">ストア ID の例は 9NBLGGH4TNMP です。</span><span class="sxs-lookup"><span data-stu-id="095b9-138">An example Store ID is 9NBLGGH4TNMP.</span></span>  |
-| <span data-ttu-id="095b9-139">productId</span><span class="sxs-lookup"><span data-stu-id="095b9-139">productId</span></span> | <span data-ttu-id="095b9-140">string</span><span class="sxs-lookup"><span data-stu-id="095b9-140">string</span></span>  | <span data-ttu-id="095b9-141">アドオンの製品 ID です。</span><span class="sxs-lookup"><span data-stu-id="095b9-141">The product ID of the add-on.</span></span> <span data-ttu-id="095b9-142">これは、アドオンの作成時に開発者が指定した ID です。</span><span class="sxs-lookup"><span data-stu-id="095b9-142">This is the ID that was provided by the developer when the add-on was created.</span></span> <span data-ttu-id="095b9-143">詳しくは、「[IAP の製品の種類と製品 ID を設定する](https://msdn.microsoft.com/windows/uwp/publish/set-your-iap-product-id)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="095b9-143">For more information, see [Set your product type and product ID](https://msdn.microsoft.com/windows/uwp/publish/set-your-iap-product-id).</span></span> |
-| <span data-ttu-id="095b9-144">productType</span><span class="sxs-lookup"><span data-stu-id="095b9-144">productType</span></span> | <span data-ttu-id="095b9-145">string</span><span class="sxs-lookup"><span data-stu-id="095b9-145">string</span></span>  | <span data-ttu-id="095b9-146">アドオンの製品の種類です。</span><span class="sxs-lookup"><span data-stu-id="095b9-146">The product type of the add-on.</span></span> <span data-ttu-id="095b9-147">次の値がサポートされています。**持続性のある**と**消耗**します。</span><span class="sxs-lookup"><span data-stu-id="095b9-147">The following values are supported: **Durable** and **Consumable**.</span></span>  |
-| <span data-ttu-id="095b9-148">lastPublishedInAppProductSubmission</span><span class="sxs-lookup"><span data-stu-id="095b9-148">lastPublishedInAppProductSubmission</span></span>       | <span data-ttu-id="095b9-149">オブジェクト</span><span class="sxs-lookup"><span data-stu-id="095b9-149">object</span></span> | <span data-ttu-id="095b9-150">アドオンの最後に公開された申請に関する情報を提供する[申請のリソース](#submission-object)。</span><span class="sxs-lookup"><span data-stu-id="095b9-150">A [submission resource](#submission-object) that provides information about the last published submission for the add-on.</span></span>         |
-| <span data-ttu-id="095b9-151">pendingInAppProductSubmission</span><span class="sxs-lookup"><span data-stu-id="095b9-151">pendingInAppProductSubmission</span></span>        | <span data-ttu-id="095b9-152">オブジェクト</span><span class="sxs-lookup"><span data-stu-id="095b9-152">object</span></span>  |  <span data-ttu-id="095b9-153">アドオンの現在保留中の申請に関する情報を提供する[申請のリソース](#submission-object)。</span><span class="sxs-lookup"><span data-stu-id="095b9-153">A [submission resource](#submission-object) that provides information about the current pending submission for the add-on.</span></span>  |   |
+| <span data-ttu-id="eb1a6-130">applications</span><span class="sxs-lookup"><span data-stu-id="eb1a6-130">applications</span></span>      | <span data-ttu-id="eb1a6-131">array</span><span class="sxs-lookup"><span data-stu-id="eb1a6-131">array</span></span>  | <span data-ttu-id="eb1a6-132">このアドオンが関連付けられるアプリを表す 1 つの[アプリケーション リソース](#application-object)を格納する配列です。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-132">An array that contains one [application resource](#application-object) that represents the app that this add-on is associated with.</span></span> <span data-ttu-id="eb1a6-133">この配列でサポートされる項目は 1 つのみです。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-133">Only one item is supported in this array.</span></span>  |
+| <span data-ttu-id="eb1a6-134">id</span><span class="sxs-lookup"><span data-stu-id="eb1a6-134">id</span></span> | <span data-ttu-id="eb1a6-135">string</span><span class="sxs-lookup"><span data-stu-id="eb1a6-135">string</span></span>  | <span data-ttu-id="eb1a6-136">アドオンのストア ID です。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-136">The Store ID of the add-on.</span></span> <span data-ttu-id="eb1a6-137">この値は、ストアによって提供されます。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-137">This value is supplied by the Store.</span></span> <span data-ttu-id="eb1a6-138">ストア ID の例は 9NBLGGH4TNMP です。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-138">An example Store ID is 9NBLGGH4TNMP.</span></span>  |
+| <span data-ttu-id="eb1a6-139">productId</span><span class="sxs-lookup"><span data-stu-id="eb1a6-139">productId</span></span> | <span data-ttu-id="eb1a6-140">string</span><span class="sxs-lookup"><span data-stu-id="eb1a6-140">string</span></span>  | <span data-ttu-id="eb1a6-141">アドオンの製品 ID です。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-141">The product ID of the add-on.</span></span> <span data-ttu-id="eb1a6-142">これは、アドオンの作成時に開発者が指定した ID です。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-142">This is the ID that was provided by the developer when the add-on was created.</span></span> <span data-ttu-id="eb1a6-143">詳しくは、「[IAP の製品の種類と製品 ID を設定する](https://docs.microsoft.com/windows/uwp/publish/set-your-iap-product-id)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-143">For more information, see [Set your product type and product ID](https://docs.microsoft.com/windows/uwp/publish/set-your-iap-product-id).</span></span> |
+| <span data-ttu-id="eb1a6-144">productType</span><span class="sxs-lookup"><span data-stu-id="eb1a6-144">productType</span></span> | <span data-ttu-id="eb1a6-145">string</span><span class="sxs-lookup"><span data-stu-id="eb1a6-145">string</span></span>  | <span data-ttu-id="eb1a6-146">アドオンの製品の種類です。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-146">The product type of the add-on.</span></span> <span data-ttu-id="eb1a6-147">次の値がサポートされています。**持続性のある**と**消耗**します。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-147">The following values are supported: **Durable** and **Consumable**.</span></span>  |
+| <span data-ttu-id="eb1a6-148">lastPublishedInAppProductSubmission</span><span class="sxs-lookup"><span data-stu-id="eb1a6-148">lastPublishedInAppProductSubmission</span></span>       | <span data-ttu-id="eb1a6-149">オブジェクト</span><span class="sxs-lookup"><span data-stu-id="eb1a6-149">object</span></span> | <span data-ttu-id="eb1a6-150">アドオンの最後に公開された申請に関する情報を提供する[申請のリソース](#submission-object)。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-150">A [submission resource](#submission-object) that provides information about the last published submission for the add-on.</span></span>         |
+| <span data-ttu-id="eb1a6-151">pendingInAppProductSubmission</span><span class="sxs-lookup"><span data-stu-id="eb1a6-151">pendingInAppProductSubmission</span></span>        | <span data-ttu-id="eb1a6-152">オブジェクト</span><span class="sxs-lookup"><span data-stu-id="eb1a6-152">object</span></span>  |  <span data-ttu-id="eb1a6-153">アドオンの現在保留中の申請に関する情報を提供する[申請のリソース](#submission-object)。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-153">A [submission resource](#submission-object) that provides information about the current pending submission for the add-on.</span></span>  |   |
 
 <span id="application-object" />
 
-### <a name="application-resource"></a><span data-ttu-id="095b9-154">アプリケーション リソース</span><span class="sxs-lookup"><span data-stu-id="095b9-154">Application resource</span></span>
+### <a name="application-resource"></a><span data-ttu-id="eb1a6-154">アプリケーション リソース</span><span class="sxs-lookup"><span data-stu-id="eb1a6-154">Application resource</span></span>
 
-<span data-ttu-id="095b9-155">このリソースは、アドオンが関連付けられているアプリを説明します。</span><span class="sxs-lookup"><span data-stu-id="095b9-155">This resource descries the app that an add-on is associated with.</span></span> <span data-ttu-id="095b9-156">次の例は、このリソースの書式設定を示しています。</span><span class="sxs-lookup"><span data-stu-id="095b9-156">The following example demonstrates the format of this resource.</span></span>
+<span data-ttu-id="eb1a6-155">このリソースは、アドオンが関連付けられているアプリを説明します。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-155">This resource descries the app that an add-on is associated with.</span></span> <span data-ttu-id="eb1a6-156">次の例は、このリソースの書式設定を示しています。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-156">The following example demonstrates the format of this resource.</span></span>
 
 ```json
 {
@@ -126,18 +126,18 @@ ms.locfileid: "57617827"
 }
 ```
 
-<span data-ttu-id="095b9-157">このリソースには、次の値があります。</span><span class="sxs-lookup"><span data-stu-id="095b9-157">This resource has the following values.</span></span>
+<span data-ttu-id="eb1a6-157">このリソースには、次の値があります。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-157">This resource has the following values.</span></span>
 
-| <span data-ttu-id="095b9-158">値</span><span class="sxs-lookup"><span data-stu-id="095b9-158">Value</span></span>           | <span data-ttu-id="095b9-159">種類</span><span class="sxs-lookup"><span data-stu-id="095b9-159">Type</span></span>    | <span data-ttu-id="095b9-160">説明</span><span class="sxs-lookup"><span data-stu-id="095b9-160">Description</span></span>        |
+| <span data-ttu-id="eb1a6-158">Value</span><span class="sxs-lookup"><span data-stu-id="eb1a6-158">Value</span></span>           | <span data-ttu-id="eb1a6-159">種類</span><span class="sxs-lookup"><span data-stu-id="eb1a6-159">Type</span></span>    | <span data-ttu-id="eb1a6-160">説明</span><span class="sxs-lookup"><span data-stu-id="eb1a6-160">Description</span></span>        |
 |-----------------|---------|-----------|
-| <span data-ttu-id="095b9-161">value</span><span class="sxs-lookup"><span data-stu-id="095b9-161">value</span></span>            | <span data-ttu-id="095b9-162">オブジェクト</span><span class="sxs-lookup"><span data-stu-id="095b9-162">object</span></span>  |  <span data-ttu-id="095b9-163">次の値を格納するオブジェクトです。</span><span class="sxs-lookup"><span data-stu-id="095b9-163">An object that contains the following values:</span></span> <br/><br/> <ul><li><span data-ttu-id="095b9-164">*id*。アプリケーションのストア ID です。</span><span class="sxs-lookup"><span data-stu-id="095b9-164">*id*. The Store ID of the app.</span></span> <span data-ttu-id="095b9-165">ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="095b9-165">For more information about the Store ID, see [View app identity details](https://msdn.microsoft.com/windows/uwp/publish/view-app-identity-details).</span></span></li><li><span data-ttu-id="095b9-166">*resourceLocation*。</span><span class="sxs-lookup"><span data-stu-id="095b9-166">*resourceLocation*.</span></span> <span data-ttu-id="095b9-167">アプリの完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</span><span class="sxs-lookup"><span data-stu-id="095b9-167">A relative path that you can append to the base ```https://manage.devcenter.microsoft.com/v1.0/my/``` request URI to retrieve the complete data for the app.</span></span></li></ul>   |
-| <span data-ttu-id="095b9-168">totalCount</span><span class="sxs-lookup"><span data-stu-id="095b9-168">totalCount</span></span>   | <span data-ttu-id="095b9-169">int</span><span class="sxs-lookup"><span data-stu-id="095b9-169">int</span></span>  | <span data-ttu-id="095b9-170">応答本文の *applications* 配列のアプリ オブジェクトの数。</span><span class="sxs-lookup"><span data-stu-id="095b9-170">The number of app objects in the *applications* array of the response body.</span></span>                                                                                                                                                 |
+| <span data-ttu-id="eb1a6-161">value</span><span class="sxs-lookup"><span data-stu-id="eb1a6-161">value</span></span>            | <span data-ttu-id="eb1a6-162">オブジェクト</span><span class="sxs-lookup"><span data-stu-id="eb1a6-162">object</span></span>  |  <span data-ttu-id="eb1a6-163">次の値を格納するオブジェクトです。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-163">An object that contains the following values:</span></span> <br/><br/> <ul><li><span data-ttu-id="eb1a6-164">*id*。アプリケーションのストア ID です。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-164">*id*. The Store ID of the app.</span></span> <span data-ttu-id="eb1a6-165">ストア ID について詳しくは、「[アプリ ID の詳細の表示](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-165">For more information about the Store ID, see [View app identity details](https://docs.microsoft.com/windows/uwp/publish/view-app-identity-details).</span></span></li><li><span data-ttu-id="eb1a6-166">*resourceLocation*。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-166">*resourceLocation*.</span></span> <span data-ttu-id="eb1a6-167">アプリの完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-167">A relative path that you can append to the base ```https://manage.devcenter.microsoft.com/v1.0/my/``` request URI to retrieve the complete data for the app.</span></span></li></ul>   |
+| <span data-ttu-id="eb1a6-168">totalCount</span><span class="sxs-lookup"><span data-stu-id="eb1a6-168">totalCount</span></span>   | <span data-ttu-id="eb1a6-169">int</span><span class="sxs-lookup"><span data-stu-id="eb1a6-169">int</span></span>  | <span data-ttu-id="eb1a6-170">応答本文の *applications* 配列のアプリ オブジェクトの数。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-170">The number of app objects in the *applications* array of the response body.</span></span>                                                                                                                                                 |
 
 <span id="submission-object" />
 
-### <a name="submission-resource"></a><span data-ttu-id="095b9-171">申請のリソース</span><span class="sxs-lookup"><span data-stu-id="095b9-171">Submission resource</span></span>
+### <a name="submission-resource"></a><span data-ttu-id="eb1a6-171">申請のリソース</span><span class="sxs-lookup"><span data-stu-id="eb1a6-171">Submission resource</span></span>
 
-<span data-ttu-id="095b9-172">このリソースは、アドオンの申請に関する情報を提供します。</span><span class="sxs-lookup"><span data-stu-id="095b9-172">This resource provides information about a submission for an add-on.</span></span> <span data-ttu-id="095b9-173">次の例は、このリソースの書式設定を示しています。</span><span class="sxs-lookup"><span data-stu-id="095b9-173">The following example demonstrates the format of this resource.</span></span>
+<span data-ttu-id="eb1a6-172">このリソースは、アドオンの申請に関する情報を提供します。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-172">This resource provides information about a submission for an add-on.</span></span> <span data-ttu-id="eb1a6-173">次の例は、このリソースの書式設定を示しています。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-173">The following example demonstrates the format of this resource.</span></span>
 
 ```json
 {
@@ -148,20 +148,20 @@ ms.locfileid: "57617827"
 }
 ```
 
-<span data-ttu-id="095b9-174">このリソースには、次の値があります。</span><span class="sxs-lookup"><span data-stu-id="095b9-174">This resource has the following values.</span></span>
+<span data-ttu-id="eb1a6-174">このリソースには、次の値があります。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-174">This resource has the following values.</span></span>
 
-| <span data-ttu-id="095b9-175">値</span><span class="sxs-lookup"><span data-stu-id="095b9-175">Value</span></span>           | <span data-ttu-id="095b9-176">種類</span><span class="sxs-lookup"><span data-stu-id="095b9-176">Type</span></span>    | <span data-ttu-id="095b9-177">説明</span><span class="sxs-lookup"><span data-stu-id="095b9-177">Description</span></span>     |
+| <span data-ttu-id="eb1a6-175">Value</span><span class="sxs-lookup"><span data-stu-id="eb1a6-175">Value</span></span>           | <span data-ttu-id="eb1a6-176">種類</span><span class="sxs-lookup"><span data-stu-id="eb1a6-176">Type</span></span>    | <span data-ttu-id="eb1a6-177">説明</span><span class="sxs-lookup"><span data-stu-id="eb1a6-177">Description</span></span>     |
 |-----------------|---------|------------------|
-| <span data-ttu-id="095b9-178">id</span><span class="sxs-lookup"><span data-stu-id="095b9-178">id</span></span>            | <span data-ttu-id="095b9-179">string</span><span class="sxs-lookup"><span data-stu-id="095b9-179">string</span></span>  | <span data-ttu-id="095b9-180">申請 ID。</span><span class="sxs-lookup"><span data-stu-id="095b9-180">The ID of the submission.</span></span>    |
-| <span data-ttu-id="095b9-181">resourceLocation</span><span class="sxs-lookup"><span data-stu-id="095b9-181">resourceLocation</span></span>   | <span data-ttu-id="095b9-182">string</span><span class="sxs-lookup"><span data-stu-id="095b9-182">string</span></span>  | <span data-ttu-id="095b9-183">申請の完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</span><span class="sxs-lookup"><span data-stu-id="095b9-183">A relative path that you can append to the base ```https://manage.devcenter.microsoft.com/v1.0/my/``` request URI to retrieve the complete data for the submission.</span></span>     |
+| <span data-ttu-id="eb1a6-178">id</span><span class="sxs-lookup"><span data-stu-id="eb1a6-178">id</span></span>            | <span data-ttu-id="eb1a6-179">string</span><span class="sxs-lookup"><span data-stu-id="eb1a6-179">string</span></span>  | <span data-ttu-id="eb1a6-180">申請 ID。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-180">The ID of the submission.</span></span>    |
+| <span data-ttu-id="eb1a6-181">resourceLocation</span><span class="sxs-lookup"><span data-stu-id="eb1a6-181">resourceLocation</span></span>   | <span data-ttu-id="eb1a6-182">string</span><span class="sxs-lookup"><span data-stu-id="eb1a6-182">string</span></span>  | <span data-ttu-id="eb1a6-183">申請の完全なデータを取得するために基本 ```https://manage.devcenter.microsoft.com/v1.0/my/``` 要求 URI に付加できる相対パス。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-183">A relative path that you can append to the base ```https://manage.devcenter.microsoft.com/v1.0/my/``` request URI to retrieve the complete data for the submission.</span></span>     |
  
 <span/>
 
-## <a name="related-topics"></a><span data-ttu-id="095b9-184">関連トピック</span><span class="sxs-lookup"><span data-stu-id="095b9-184">Related topics</span></span>
+## <a name="related-topics"></a><span data-ttu-id="eb1a6-184">関連トピック</span><span class="sxs-lookup"><span data-stu-id="eb1a6-184">Related topics</span></span>
 
-* [<span data-ttu-id="095b9-185">作成し、Microsoft Store サービスを使用して送信の管理</span><span class="sxs-lookup"><span data-stu-id="095b9-185">Create and manage submissions using Microsoft Store services</span></span>](create-and-manage-submissions-using-windows-store-services.md)
-* [<span data-ttu-id="095b9-186">Microsoft Store 送信 API を使用してアドオン送信を管理します。</span><span class="sxs-lookup"><span data-stu-id="095b9-186">Manage add-on submissions using the Microsoft Store submission API</span></span>](manage-add-on-submissions.md)
-* [<span data-ttu-id="095b9-187">すべてのアドオンを入手します。</span><span class="sxs-lookup"><span data-stu-id="095b9-187">Get all add-ons</span></span>](get-all-add-ons.md)
-* [<span data-ttu-id="095b9-188">アドオンを入手します。</span><span class="sxs-lookup"><span data-stu-id="095b9-188">Get an add-on</span></span>](get-an-add-on.md)
-* [<span data-ttu-id="095b9-189">アドオンを作成します。</span><span class="sxs-lookup"><span data-stu-id="095b9-189">Create an add-on</span></span>](create-an-add-on.md)
-* [<span data-ttu-id="095b9-190">アドオンを削除します。</span><span class="sxs-lookup"><span data-stu-id="095b9-190">Delete an add-on</span></span>](delete-an-add-on.md)
+* [<span data-ttu-id="eb1a6-185">作成し、Microsoft Store サービスを使用して送信の管理</span><span class="sxs-lookup"><span data-stu-id="eb1a6-185">Create and manage submissions using Microsoft Store services</span></span>](create-and-manage-submissions-using-windows-store-services.md)
+* [<span data-ttu-id="eb1a6-186">Microsoft Store 送信 API を使用してアドオン送信を管理します。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-186">Manage add-on submissions using the Microsoft Store submission API</span></span>](manage-add-on-submissions.md)
+* [<span data-ttu-id="eb1a6-187">すべてのアドオンを入手します。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-187">Get all add-ons</span></span>](get-all-add-ons.md)
+* [<span data-ttu-id="eb1a6-188">アドオンを入手します。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-188">Get an add-on</span></span>](get-an-add-on.md)
+* [<span data-ttu-id="eb1a6-189">アドオンを作成します。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-189">Create an add-on</span></span>](create-an-add-on.md)
+* [<span data-ttu-id="eb1a6-190">アドオンを削除します。</span><span class="sxs-lookup"><span data-stu-id="eb1a6-190">Delete an add-on</span></span>](delete-an-add-on.md)
