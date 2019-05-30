@@ -6,34 +6,34 @@ ms.date: 08/09/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: f1abd71cda8358e3f7e2fe36091f9c42f05bcb00
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: ee87a62796ed51d09d44cabecd0b49873145bd90
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57663797"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366084"
 ---
-# <a name="pointer-click-animations"></a><span data-ttu-id="336a8-104">ポインター クリックのアニメーション</span><span class="sxs-lookup"><span data-stu-id="336a8-104">Pointer click animations</span></span>
+# <a name="pointer-click-animations"></a><span data-ttu-id="2d81d-104">ポインター クリックのアニメーション</span><span class="sxs-lookup"><span data-stu-id="2d81d-104">Pointer click animations</span></span>
 
 
 
-<span data-ttu-id="336a8-105">ポインター アニメーションを使って、ユーザーが項目をタップまたはクリックしたときに視覚的なフィードバックをユーザーに提供します。</span><span class="sxs-lookup"><span data-stu-id="336a8-105">Use pointer animations to provide users with visual feedback when the user taps on an item.</span></span> <span data-ttu-id="336a8-106">ポインター ダウン アニメーション (押された項目を若干縮小して傾ける) は、項目が最初にタップされたときに再生されます。</span><span class="sxs-lookup"><span data-stu-id="336a8-106">The pointer down animation slightly shrinks and tilts the pressed item, and plays when an item is first tapped.</span></span> <span data-ttu-id="336a8-107">ポインター アップ アニメーション (項目を元の位置に復元する) は、ユーザーがポインターから指を離したときに再生されます。</span><span class="sxs-lookup"><span data-stu-id="336a8-107">The pointer up animation, which restores the item to its original position, is played when the user releases the pointer.</span></span>
+<span data-ttu-id="2d81d-105">ポインター アニメーションを使って、ユーザーが項目をタップまたはクリックしたときに視覚的なフィードバックをユーザーに提供します。</span><span class="sxs-lookup"><span data-stu-id="2d81d-105">Use pointer animations to provide users with visual feedback when the user taps on an item.</span></span> <span data-ttu-id="2d81d-106">ポインター ダウン アニメーション (押された項目を若干縮小して傾ける) は、項目が最初にタップされたときに再生されます。</span><span class="sxs-lookup"><span data-stu-id="2d81d-106">The pointer down animation slightly shrinks and tilts the pressed item, and plays when an item is first tapped.</span></span> <span data-ttu-id="2d81d-107">ポインター アップ アニメーション (項目を元の位置に復元する) は、ユーザーがポインターから指を離したときに再生されます。</span><span class="sxs-lookup"><span data-stu-id="2d81d-107">The pointer up animation, which restores the item to its original position, is played when the user releases the pointer.</span></span>
 
 
-> <span data-ttu-id="336a8-108">**重要な API**:[**PointerUpThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/hh969168)、 [ **PointerDownThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/hh969164)</span><span class="sxs-lookup"><span data-stu-id="336a8-108">**Important APIs**: [**PointerUpThemeAnimation class**](https://msdn.microsoft.com/library/windows/apps/hh969168), [**PointerDownThemeAnimation class**](https://msdn.microsoft.com/library/windows/apps/hh969164)</span></span>
+> <span data-ttu-id="2d81d-108">**重要な API**:[**PointerUpThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation)、 [ **PointerDownThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation)</span><span class="sxs-lookup"><span data-stu-id="2d81d-108">**Important APIs**: [**PointerUpThemeAnimation class**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation), [**PointerDownThemeAnimation class**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation)</span></span>
 
 
-## <a name="dos-and-donts"></a><span data-ttu-id="336a8-109">推奨と非推奨</span><span class="sxs-lookup"><span data-stu-id="336a8-109">Do's and don'ts</span></span>
+## <a name="dos-and-donts"></a><span data-ttu-id="2d81d-109">推奨と非推奨</span><span class="sxs-lookup"><span data-stu-id="2d81d-109">Do's and don'ts</span></span>
 
--   <span data-ttu-id="336a8-110">ポインター アップ アニメーションを使うときには、ユーザーが指を離した直後にアニメーションを開始するようにします。</span><span class="sxs-lookup"><span data-stu-id="336a8-110">When you use a pointer up animation, immediately trigger the animation when the user releases the pointer.</span></span> <span data-ttu-id="336a8-111">これにより、タップによってトリガーされたアクション (新しいページへの移動など) の応答が遅れたとしても、ユーザーの操作が認識されたというフィードバックを即座に返すことができます。</span><span class="sxs-lookup"><span data-stu-id="336a8-111">This provides instant feedback to the user that their action has been recognized, even if the action triggered by the tap (such as navigating to a new page) is slower to respond.</span></span>
+-   <span data-ttu-id="2d81d-110">ポインター アップ アニメーションを使うときには、ユーザーが指を離した直後にアニメーションを開始するようにします。</span><span class="sxs-lookup"><span data-stu-id="2d81d-110">When you use a pointer up animation, immediately trigger the animation when the user releases the pointer.</span></span> <span data-ttu-id="2d81d-111">これにより、タップによってトリガーされたアクション (新しいページへの移動など) の応答が遅れたとしても、ユーザーの操作が認識されたというフィードバックを即座に返すことができます。</span><span class="sxs-lookup"><span data-stu-id="2d81d-111">This provides instant feedback to the user that their action has been recognized, even if the action triggered by the tap (such as navigating to a new page) is slower to respond.</span></span>
 
-## <a name="related-articles"></a><span data-ttu-id="336a8-112">関連記事</span><span class="sxs-lookup"><span data-stu-id="336a8-112">Related articles</span></span>
+## <a name="related-articles"></a><span data-ttu-id="2d81d-112">関連記事</span><span class="sxs-lookup"><span data-stu-id="2d81d-112">Related articles</span></span>
 
-* [<span data-ttu-id="336a8-113">アニメーションの概要</span><span class="sxs-lookup"><span data-stu-id="336a8-113">Animations overview</span></span>](https://msdn.microsoft.com/library/windows/apps/mt187350)
-* [<span data-ttu-id="336a8-114">アニメーション ポインター数回のクリック</span><span class="sxs-lookup"><span data-stu-id="336a8-114">Animating pointer clicks</span></span>](https://msdn.microsoft.com/library/windows/apps/xaml/jj649432)
-* [<span data-ttu-id="336a8-115">クイック スタート:Library のアニメーションを使用して、UI をアニメーション化</span><span class="sxs-lookup"><span data-stu-id="336a8-115">Quickstart: Animating your UI using library animations</span></span>](https://msdn.microsoft.com/library/windows/apps/xaml/hh452703)
-* [<span data-ttu-id="336a8-116">**PointerUpThemeAnimation クラス**</span><span class="sxs-lookup"><span data-stu-id="336a8-116">**PointerUpThemeAnimation class**</span></span>](https://msdn.microsoft.com/library/windows/apps/hh969168)
-* [<span data-ttu-id="336a8-117">**PointerDownThemeAnimation クラス**</span><span class="sxs-lookup"><span data-stu-id="336a8-117">**PointerDownThemeAnimation class**</span></span>](https://msdn.microsoft.com/library/windows/apps/hh969164)
+* [<span data-ttu-id="2d81d-113">アニメーションの概要</span><span class="sxs-lookup"><span data-stu-id="2d81d-113">Animations overview</span></span>](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
+* <span data-ttu-id="2d81d-114">[アニメーション ポインター数回のクリック](https://docs.microsoft.com/previous-versions/windows/apps/jj649432(v=win.10))</span><span class="sxs-lookup"><span data-stu-id="2d81d-114">[Animating pointer clicks](https://docs.microsoft.com/previous-versions/windows/apps/jj649432(v=win.10))</span></span>
+* <span data-ttu-id="2d81d-115">[クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))</span><span class="sxs-lookup"><span data-stu-id="2d81d-115">[Quickstart: Animating your UI using library animations](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))</span></span>
+* [<span data-ttu-id="2d81d-116">**PointerUpThemeAnimation クラス**</span><span class="sxs-lookup"><span data-stu-id="2d81d-116">**PointerUpThemeAnimation class**</span></span>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation)
+* [<span data-ttu-id="2d81d-117">**PointerDownThemeAnimation クラス**</span><span class="sxs-lookup"><span data-stu-id="2d81d-117">**PointerDownThemeAnimation class**</span></span>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation)
 
  
 

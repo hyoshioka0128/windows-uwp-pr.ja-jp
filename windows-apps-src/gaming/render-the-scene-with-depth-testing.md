@@ -6,24 +6,24 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: Windows 10、UWP、ゲーム、レンダリング、シーン、深度のテスト、Direct3D、シャドウ
 ms.localizationpriority: medium
-ms.openlocfilehash: 237da82ef51466ae2460c3be27486091bf4066f3
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: d1c2c4e5d45b28c318085f4ce257b587f23f1426
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57630457"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66368106"
 ---
-# <a name="render-the-scene-with-depth-testing"></a><span data-ttu-id="668f9-104">深度のテストを使ったシーンのレンダリング</span><span class="sxs-lookup"><span data-stu-id="668f9-104">Render the scene with depth testing</span></span>
+# <a name="render-the-scene-with-depth-testing"></a><span data-ttu-id="14a08-104">深度のテストを使ったシーンのレンダリング</span><span class="sxs-lookup"><span data-stu-id="14a08-104">Render the scene with depth testing</span></span>
 
 
 
 
-<span data-ttu-id="668f9-105">シャドウ効果を作成するには、頂点 (またはジオメトリ) シェーダーとピクセル シェーダーに深度のテストを追加します。</span><span class="sxs-lookup"><span data-stu-id="668f9-105">Create a shadow effect by adding depth testing to your vertex (or geometry) shader and your pixel shader.</span></span> <span data-ttu-id="668f9-106">パート 3 の[チュートリアル。Direct3d11 の深度バッファーを使用してボリュームをシャドウ実装](implementing-depth-buffers-for-shadow-mapping.md)します。</span><span class="sxs-lookup"><span data-stu-id="668f9-106">Part 3 of [Walkthrough: Implement shadow volumes using depth buffers in Direct3D 11](implementing-depth-buffers-for-shadow-mapping.md).</span></span>
+<span data-ttu-id="14a08-105">シャドウ効果を作成するには、頂点 (またはジオメトリ) シェーダーとピクセル シェーダーに深度のテストを追加します。</span><span class="sxs-lookup"><span data-stu-id="14a08-105">Create a shadow effect by adding depth testing to your vertex (or geometry) shader and your pixel shader.</span></span> <span data-ttu-id="14a08-106">パート 3 の[チュートリアル。Direct3d11 の深度バッファーを使用してボリュームをシャドウ実装](implementing-depth-buffers-for-shadow-mapping.md)します。</span><span class="sxs-lookup"><span data-stu-id="14a08-106">Part 3 of [Walkthrough: Implement shadow volumes using depth buffers in Direct3D 11](implementing-depth-buffers-for-shadow-mapping.md).</span></span>
 
-## <a name="include-transformation-for-light-frustum"></a><span data-ttu-id="668f9-107">ライトの視錐台の変換の追加</span><span class="sxs-lookup"><span data-stu-id="668f9-107">Include transformation for light frustum</span></span>
+## <a name="include-transformation-for-light-frustum"></a><span data-ttu-id="14a08-107">ライトの視錐台の変換の追加</span><span class="sxs-lookup"><span data-stu-id="14a08-107">Include transformation for light frustum</span></span>
 
 
-<span data-ttu-id="668f9-108">頂点シェーダーで、各頂点の変換後のライト空間位置を計算する必要があります。</span><span class="sxs-lookup"><span data-stu-id="668f9-108">Your vertex shader needs to compute the transformed light space position for each vertex.</span></span> <span data-ttu-id="668f9-109">定数バッファーを使って、ライト空間のモデル、ビュー、プロジェクションの各マトリックスを提供します </span><span class="sxs-lookup"><span data-stu-id="668f9-109">Provide the light space model, view, and projection matrices using a constant buffer.</span></span> <span data-ttu-id="668f9-110">また、この定数バッファーを使って、照明計算用にライトの位置と法線を提供することもできます。</span><span class="sxs-lookup"><span data-stu-id="668f9-110">You can also use this constant buffer to provide the light position and normal for lighting calculations.</span></span> <span data-ttu-id="668f9-111">ライト空間内の変換された位置は深度のテスト時に使います。</span><span class="sxs-lookup"><span data-stu-id="668f9-111">The transformed position in light space will be used during the depth test.</span></span>
+<span data-ttu-id="14a08-108">頂点シェーダーで、各頂点の変換後のライト空間位置を計算する必要があります。</span><span class="sxs-lookup"><span data-stu-id="14a08-108">Your vertex shader needs to compute the transformed light space position for each vertex.</span></span> <span data-ttu-id="14a08-109">定数バッファーを使って、ライト空間のモデル、ビュー、プロジェクションの各マトリックスを提供します </span><span class="sxs-lookup"><span data-stu-id="14a08-109">Provide the light space model, view, and projection matrices using a constant buffer.</span></span> <span data-ttu-id="14a08-110">また、この定数バッファーを使って、照明計算用にライトの位置と法線を提供することもできます。</span><span class="sxs-lookup"><span data-stu-id="14a08-110">You can also use this constant buffer to provide the light position and normal for lighting calculations.</span></span> <span data-ttu-id="14a08-111">ライト空間内の変換された位置は深度のテスト時に使います。</span><span class="sxs-lookup"><span data-stu-id="14a08-111">The transformed position in light space will be used during the depth test.</span></span>
 
 ```cpp
 PixelShaderInput main(VertexShaderInput input)
@@ -62,12 +62,12 @@ PixelShaderInput main(VertexShaderInput input)
 }
 ```
 
-<span data-ttu-id="668f9-112">次に、ピクセル シェーダーでは、頂点シェーダーから提供された補完済みのライト空間位置を使って、ピクセルがシャドウ内かどうかをテストします。</span><span class="sxs-lookup"><span data-stu-id="668f9-112">Next, the pixel shader will use the interpolated light space position provided by the vertex shader to test whether the pixel is in shadow.</span></span>
+<span data-ttu-id="14a08-112">次に、ピクセル シェーダーでは、頂点シェーダーから提供された補完済みのライト空間位置を使って、ピクセルがシャドウ内かどうかをテストします。</span><span class="sxs-lookup"><span data-stu-id="14a08-112">Next, the pixel shader will use the interpolated light space position provided by the vertex shader to test whether the pixel is in shadow.</span></span>
 
-## <a name="test-whether-the-position-is-in-the-light-frustum"></a><span data-ttu-id="668f9-113">位置がライトの視錐台内かどうかのテスト</span><span class="sxs-lookup"><span data-stu-id="668f9-113">Test whether the position is in the light frustum</span></span>
+## <a name="test-whether-the-position-is-in-the-light-frustum"></a><span data-ttu-id="14a08-113">位置がライトの視錐台内かどうかのテスト</span><span class="sxs-lookup"><span data-stu-id="14a08-113">Test whether the position is in the light frustum</span></span>
 
 
-<span data-ttu-id="668f9-114">最初に、X 座標と Y 座標を正規化して、ピクセルがライトの視錐台内かどうかをチェックします。</span><span class="sxs-lookup"><span data-stu-id="668f9-114">First, check that the pixel is in the view frustum of the light by normalizing the X and Y coordinates.</span></span> <span data-ttu-id="668f9-115">場合は、範囲内でどちらも\[0, 1\]でシャドウするピクセルの可能性があります。</span><span class="sxs-lookup"><span data-stu-id="668f9-115">If they are both within the range \[0, 1\] then it's possible for the pixel to be in shadow.</span></span> <span data-ttu-id="668f9-116">それ以外の場合は、深度のテストをスキップできます。</span><span class="sxs-lookup"><span data-stu-id="668f9-116">Otherwise you can skip the depth test.</span></span> <span data-ttu-id="668f9-117">シェーダーでは、[Saturate](https://msdn.microsoft.com/library/windows/desktop/hh447231) を呼び出し、結果を元の値と比較することで、これをすばやくテストできます。</span><span class="sxs-lookup"><span data-stu-id="668f9-117">A shader can test for this quickly by calling [Saturate](https://msdn.microsoft.com/library/windows/desktop/hh447231) and comparing the result against the original value.</span></span>
+<span data-ttu-id="14a08-114">最初に、X 座標と Y 座標を正規化して、ピクセルがライトの視錐台内かどうかをチェックします。</span><span class="sxs-lookup"><span data-stu-id="14a08-114">First, check that the pixel is in the view frustum of the light by normalizing the X and Y coordinates.</span></span> <span data-ttu-id="14a08-115">場合は、範囲内でどちらも\[0, 1\]でシャドウするピクセルの可能性があります。</span><span class="sxs-lookup"><span data-stu-id="14a08-115">If they are both within the range \[0, 1\] then it's possible for the pixel to be in shadow.</span></span> <span data-ttu-id="14a08-116">それ以外の場合は、深度のテストをスキップできます。</span><span class="sxs-lookup"><span data-stu-id="14a08-116">Otherwise you can skip the depth test.</span></span> <span data-ttu-id="14a08-117">シェーダーでは、[Saturate](https://docs.microsoft.com/windows/desktop/direct3dhlsl/saturate) を呼び出し、結果を元の値と比較することで、これをすばやくテストできます。</span><span class="sxs-lookup"><span data-stu-id="14a08-117">A shader can test for this quickly by calling [Saturate](https://docs.microsoft.com/windows/desktop/direct3dhlsl/saturate) and comparing the result against the original value.</span></span>
 
 ```cpp
 // Compute texture coordinates for the current point's location on the shadow map.
@@ -86,10 +86,10 @@ if ((saturate(shadowTexCoords.x) == shadowTexCoords.x) &&
 {
 ```
 
-## <a name="depth-test-against-the-shadow-map"></a><span data-ttu-id="668f9-118">シャドウ マップに対する深度のテスト</span><span class="sxs-lookup"><span data-stu-id="668f9-118">Depth test against the shadow map</span></span>
+## <a name="depth-test-against-the-shadow-map"></a><span data-ttu-id="14a08-118">シャドウ マップに対する深度のテスト</span><span class="sxs-lookup"><span data-stu-id="14a08-118">Depth test against the shadow map</span></span>
 
 
-<span data-ttu-id="668f9-119">サンプル比較関数 ([SampleCmp](https://msdn.microsoft.com/library/windows/desktop/bb509696) または [SampleCmpLevelZero](https://msdn.microsoft.com/library/windows/desktop/bb509697)) を使って、深度マップに対するライト空間内のピクセルの深度をテストします。</span><span class="sxs-lookup"><span data-stu-id="668f9-119">Use a sample comparison function (either [SampleCmp](https://msdn.microsoft.com/library/windows/desktop/bb509696) or [SampleCmpLevelZero](https://msdn.microsoft.com/library/windows/desktop/bb509697)) to test the pixel's depth in light space against the depth map.</span></span> <span data-ttu-id="668f9-120">正規化されたライト空間の深度値 (`z / w`) を計算し、その値を比較関数に渡します。</span><span class="sxs-lookup"><span data-stu-id="668f9-120">Compute the normalized light space depth value, which is `z / w`, and pass the value to the comparison function.</span></span> <span data-ttu-id="668f9-121">サンプラーでは LessOrEqual 比較テストを使うため、比較テストに合格すると組み込みメソッドの関数は 0 を返します。これは、そのピクセルがシャドウの内側にあることを示しています。</span><span class="sxs-lookup"><span data-stu-id="668f9-121">Since we use a LessOrEqual comparison test for the sampler, the intrinsic function returns zero when the comparison test passes; this indicates that the pixel is in shadow.</span></span>
+<span data-ttu-id="14a08-119">サンプル比較関数 ([SampleCmp](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmp) または [SampleCmpLevelZero](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmplevelzero)) を使って、深度マップに対するライト空間内のピクセルの深度をテストします。</span><span class="sxs-lookup"><span data-stu-id="14a08-119">Use a sample comparison function (either [SampleCmp](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmp) or [SampleCmpLevelZero](https://docs.microsoft.com/windows/desktop/direct3dhlsl/dx-graphics-hlsl-to-samplecmplevelzero)) to test the pixel's depth in light space against the depth map.</span></span> <span data-ttu-id="14a08-120">正規化されたライト空間の深度値 (`z / w`) を計算し、その値を比較関数に渡します。</span><span class="sxs-lookup"><span data-stu-id="14a08-120">Compute the normalized light space depth value, which is `z / w`, and pass the value to the comparison function.</span></span> <span data-ttu-id="14a08-121">サンプラーでは LessOrEqual 比較テストを使うため、比較テストに合格すると組み込みメソッドの関数は 0 を返します。これは、そのピクセルがシャドウの内側にあることを示しています。</span><span class="sxs-lookup"><span data-stu-id="14a08-121">Since we use a LessOrEqual comparison test for the sampler, the intrinsic function returns zero when the comparison test passes; this indicates that the pixel is in shadow.</span></span>
 
 ```cpp
 // Use an offset value to mitigate shadow artifacts due to imprecise 
@@ -118,10 +118,10 @@ lighting = float(shadowMap.SampleCmpLevelZero(
     );
 ```
 
-## <a name="compute-lighting-in-or-out-of-shadow"></a><span data-ttu-id="668f9-122">シャドウの内側または外側の照明の計算</span><span class="sxs-lookup"><span data-stu-id="668f9-122">Compute lighting in or out of shadow</span></span>
+## <a name="compute-lighting-in-or-out-of-shadow"></a><span data-ttu-id="14a08-122">シャドウの内側または外側の照明の計算</span><span class="sxs-lookup"><span data-stu-id="14a08-122">Compute lighting in or out of shadow</span></span>
 
 
-<span data-ttu-id="668f9-123">ピクセルがシャドウの内側にない場合は、ピクセル シェーダーは直接照明を計算し、それをピクセル値に追加します。</span><span class="sxs-lookup"><span data-stu-id="668f9-123">If the pixel is not in shadow, the pixel shader should compute direct lighting and add it to the pixel value.</span></span>
+<span data-ttu-id="14a08-123">ピクセルがシャドウの内側にない場合は、ピクセル シェーダーは直接照明を計算し、それをピクセル値に追加します。</span><span class="sxs-lookup"><span data-stu-id="14a08-123">If the pixel is not in shadow, the pixel shader should compute direct lighting and add it to the pixel value.</span></span>
 
 ```cpp
 return float4(input.color * (ambient + DplusS(N, L, NdotL, input.view)), 1.f);
@@ -150,13 +150,13 @@ float3 DplusS(float3 N, float3 L, float NdotL, float3 view)
 }
 ```
 
-<span data-ttu-id="668f9-124">それ以外の場合は、アンビエント照明を使ってピクセル値を計算します。</span><span class="sxs-lookup"><span data-stu-id="668f9-124">Otherwise, the pixel shader should compute the pixel value using ambient lighting.</span></span>
+<span data-ttu-id="14a08-124">それ以外の場合は、アンビエント照明を使ってピクセル値を計算します。</span><span class="sxs-lookup"><span data-stu-id="14a08-124">Otherwise, the pixel shader should compute the pixel value using ambient lighting.</span></span>
 
 ```cpp
 return float4(input.color * ambient, 1.f);
 ```
 
-<span data-ttu-id="668f9-125">このチュートリアルの次のパートでは、[ハードウェアの範囲でシャドウ マップをサポートする](target-a-range-of-hardware.md)方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="668f9-125">In the next part of this walkthrough, learn how to [Support shadow maps on a range of hardware](target-a-range-of-hardware.md).</span></span>
+<span data-ttu-id="14a08-125">このチュートリアルの次のパートでは、[ハードウェアの範囲でシャドウ マップをサポートする](target-a-range-of-hardware.md)方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="14a08-125">In the next part of this walkthrough, learn how to [Support shadow maps on a range of hardware](target-a-range-of-hardware.md).</span></span>
 
  
 

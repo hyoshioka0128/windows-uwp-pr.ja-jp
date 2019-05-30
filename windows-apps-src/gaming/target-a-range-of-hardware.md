@@ -6,26 +6,26 @@ ms.date: 02/08/2017
 ms.topic: article
 keywords: windows 10, UWP, ゲーム, シャドウ マップ, DirectX
 ms.localizationpriority: medium
-ms.openlocfilehash: d0e661065f86ac173a6ce323281c80fc964d0a4c
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 1087a063fa19bea716b86143c10097711cef9205
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57646367"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66367906"
 ---
-# <a name="support-shadow-maps-on-a-range-of-hardware"></a><span data-ttu-id="3ea8a-104">ハードウェアの範囲でのシャドウ マップのサポート</span><span class="sxs-lookup"><span data-stu-id="3ea8a-104">Support shadow maps on a range of hardware</span></span>
+# <a name="support-shadow-maps-on-a-range-of-hardware"></a><span data-ttu-id="5a923-104">ハードウェアの範囲でのシャドウ マップのサポート</span><span class="sxs-lookup"><span data-stu-id="5a923-104">Support shadow maps on a range of hardware</span></span>
 
 
 
 
-<span data-ttu-id="3ea8a-105">より高速なデバイスでは高品質なシャドウを、性能が低いデバイスではよりすばやいシャドウをレンダリングします。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-105">Render higher-fidelity shadows on faster devices and faster shadows on less powerful devices.</span></span> <span data-ttu-id="3ea8a-106">パート 4 の[チュートリアル。Direct3d11 の深度バッファーを使用してボリュームをシャドウ実装](implementing-depth-buffers-for-shadow-mapping.md)します。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-106">Part 4 of [Walkthrough: Implement shadow volumes using depth buffers in Direct3D 11](implementing-depth-buffers-for-shadow-mapping.md).</span></span>
+<span data-ttu-id="5a923-105">より高速なデバイスでは高品質なシャドウを、性能が低いデバイスではよりすばやいシャドウをレンダリングします。</span><span class="sxs-lookup"><span data-stu-id="5a923-105">Render higher-fidelity shadows on faster devices and faster shadows on less powerful devices.</span></span> <span data-ttu-id="5a923-106">パート 4 の[チュートリアル。Direct3d11 の深度バッファーを使用してボリュームをシャドウ実装](implementing-depth-buffers-for-shadow-mapping.md)します。</span><span class="sxs-lookup"><span data-stu-id="5a923-106">Part 4 of [Walkthrough: Implement shadow volumes using depth buffers in Direct3D 11](implementing-depth-buffers-for-shadow-mapping.md).</span></span>
 
-## <a name="comparison-filter-types"></a><span data-ttu-id="3ea8a-107">フィルターの種類の比較</span><span class="sxs-lookup"><span data-stu-id="3ea8a-107">Comparison filter types</span></span>
+## <a name="comparison-filter-types"></a><span data-ttu-id="5a923-107">フィルターの種類の比較</span><span class="sxs-lookup"><span data-stu-id="5a923-107">Comparison filter types</span></span>
 
 
-<span data-ttu-id="3ea8a-108">パフォーマンス ペナルティに対する余裕がデバイスにある場合にのみ、リニア フィルタリングを使います。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-108">Only use linear filtering if the device can afford the performance penalty.</span></span> <span data-ttu-id="3ea8a-109">一般に、Direct3D 機能レベル 9\_1 のデバイスの影のリニア フィルタ リングに十分な能力はありません。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-109">Generally, Direct3D feature level 9\_1 devices don't have enough power to spare for linear filtering on shadows.</span></span> <span data-ttu-id="3ea8a-110">そうしたデバイスでは、代わりにポイント フィルタリングを使います。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-110">Use point filtering instead on these devices.</span></span> <span data-ttu-id="3ea8a-111">リニア フィルタリングを使う場合は、シャドウのエッジをブレンドするようにピクセル シェーダーを調整します。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-111">When you use linear filtering, adjust the pixel shader so that it blends the shadow edges.</span></span>
+<span data-ttu-id="5a923-108">パフォーマンス ペナルティに対する余裕がデバイスにある場合にのみ、リニア フィルタリングを使います。</span><span class="sxs-lookup"><span data-stu-id="5a923-108">Only use linear filtering if the device can afford the performance penalty.</span></span> <span data-ttu-id="5a923-109">一般に、Direct3D 機能レベル 9\_1 のデバイスの影のリニア フィルタ リングに十分な能力はありません。</span><span class="sxs-lookup"><span data-stu-id="5a923-109">Generally, Direct3D feature level 9\_1 devices don't have enough power to spare for linear filtering on shadows.</span></span> <span data-ttu-id="5a923-110">そうしたデバイスでは、代わりにポイント フィルタリングを使います。</span><span class="sxs-lookup"><span data-stu-id="5a923-110">Use point filtering instead on these devices.</span></span> <span data-ttu-id="5a923-111">リニア フィルタリングを使う場合は、シャドウのエッジをブレンドするようにピクセル シェーダーを調整します。</span><span class="sxs-lookup"><span data-stu-id="5a923-111">When you use linear filtering, adjust the pixel shader so that it blends the shadow edges.</span></span>
 
-<span data-ttu-id="3ea8a-112">ポイント フィルタリングの比較サンプラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-112">Create the comparison sampler for point filtering:</span></span>
+<span data-ttu-id="5a923-112">ポイント フィルタリングの比較サンプラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="5a923-112">Create the comparison sampler for point filtering:</span></span>
 
 ```cpp
 D3D11_SAMPLER_DESC comparisonSamplerDesc;
@@ -57,7 +57,7 @@ DX::ThrowIfFailed(
     );
 ```
 
-<span data-ttu-id="3ea8a-113">次に、リニア フィルタリングのサンプラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-113">Then create a sampler for linear filtering:</span></span>
+<span data-ttu-id="5a923-113">次に、リニア フィルタリングのサンプラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="5a923-113">Then create a sampler for linear filtering:</span></span>
 
 ```cpp
 comparisonSamplerDesc.Filter = D3D11_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR;
@@ -69,7 +69,7 @@ DX::ThrowIfFailed(
     );
 ```
 
-<span data-ttu-id="3ea8a-114">サンプラーを選びます。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-114">Choose a sampler:</span></span>
+<span data-ttu-id="5a923-114">サンプラーを選びます。</span><span class="sxs-lookup"><span data-stu-id="5a923-114">Choose a sampler:</span></span>
 
 ```cpp
 ID3D11PixelShader* pixelShader;
@@ -96,7 +96,7 @@ context->PSSetSamplers(0, 1, comparisonSampler);
 context->PSSetShaderResources(0, 1, m_shadowResourceView.GetAddressOf());
 ```
 
-<span data-ttu-id="3ea8a-115">リニア フィルタリングでシャドウのエッジをブレンドします。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-115">Blend shadow edges with linear filtering:</span></span>
+<span data-ttu-id="5a923-115">リニア フィルタリングでシャドウのエッジをブレンドします。</span><span class="sxs-lookup"><span data-stu-id="5a923-115">Blend shadow edges with linear filtering:</span></span>
 
 ```cpp
 // Blends the shadow area into the lit area.
@@ -105,22 +105,22 @@ float3 shadow = (1.0f - lighting) * ambient;
 return float4(input.color * (light + shadow), 1.f);
 ```
 
-## <a name="shadow-buffer-size"></a><span data-ttu-id="3ea8a-116">シャドウ バッファーのサイズ</span><span class="sxs-lookup"><span data-stu-id="3ea8a-116">Shadow buffer size</span></span>
+## <a name="shadow-buffer-size"></a><span data-ttu-id="5a923-116">シャドウ バッファーのサイズ</span><span class="sxs-lookup"><span data-stu-id="5a923-116">Shadow buffer size</span></span>
 
 
-<span data-ttu-id="3ea8a-117">シャドウ マップを大きくするとブロックノイズが発生しなくなりますが、グラフィックス メモリ内の領域を多く消費します。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-117">Larger shadow maps won't look as blocky but they take up more space in graphics memory.</span></span> <span data-ttu-id="3ea8a-118">ゲームでさまざまなシャドウ マップのサイズを試し、さまざまなデバイスとディスプレイ サイズで結果を確認してください。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-118">Experiment with different shadow map sizes in your game and observe the results in different types of devices and different display sizes.</span></span> <span data-ttu-id="3ea8a-119">少ないグラフィックス メモリで良い結果が得られるように、カスケードされたシャドウ マップなどの最適化を検討してください。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-119">Consider an optimization like cascaded shadow maps to get better results with less graphics memory.</span></span> <span data-ttu-id="3ea8a-120">「[シャドウ深度マップを向上させるための一般的な方法](https://msdn.microsoft.com/library/windows/desktop/ee416324)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-120">See [Common Techniques to Improve Shadow Depth Maps](https://msdn.microsoft.com/library/windows/desktop/ee416324).</span></span>
+<span data-ttu-id="5a923-117">シャドウ マップを大きくするとブロックノイズが発生しなくなりますが、グラフィックス メモリ内の領域を多く消費します。</span><span class="sxs-lookup"><span data-stu-id="5a923-117">Larger shadow maps won't look as blocky but they take up more space in graphics memory.</span></span> <span data-ttu-id="5a923-118">ゲームでさまざまなシャドウ マップのサイズを試し、さまざまなデバイスとディスプレイ サイズで結果を確認してください。</span><span class="sxs-lookup"><span data-stu-id="5a923-118">Experiment with different shadow map sizes in your game and observe the results in different types of devices and different display sizes.</span></span> <span data-ttu-id="5a923-119">少ないグラフィックス メモリで良い結果が得られるように、カスケードされたシャドウ マップなどの最適化を検討してください。</span><span class="sxs-lookup"><span data-stu-id="5a923-119">Consider an optimization like cascaded shadow maps to get better results with less graphics memory.</span></span> <span data-ttu-id="5a923-120">「[シャドウ深度マップを向上させるための一般的な方法](https://docs.microsoft.com/windows/desktop/DxTechArts/common-techniques-to-improve-shadow-depth-maps)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="5a923-120">See [Common Techniques to Improve Shadow Depth Maps](https://docs.microsoft.com/windows/desktop/DxTechArts/common-techniques-to-improve-shadow-depth-maps).</span></span>
 
-## <a name="shadow-buffer-depth"></a><span data-ttu-id="3ea8a-121">シャドウ バッファーの深度</span><span class="sxs-lookup"><span data-stu-id="3ea8a-121">Shadow buffer depth</span></span>
-
-
-<span data-ttu-id="3ea8a-122">シャドウ バッファーの精度を上げると、深度のテスト結果がより正確になり、z バッファー ファイティングなどの問題を避けるのに役立ちます。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-122">Greater precision in the shadow buffer will give more accurate depth test results, which helps avoid issues like z-buffer fighting.</span></span> <span data-ttu-id="3ea8a-123">ただし、シャドウ マップを大きくした場合と同じように、精度を上げると、消費するメモリの量が多くなります。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-123">But like larger shadow maps, greater precision takes up more memory.</span></span> <span data-ttu-id="3ea8a-124">ゲーム - DXGI の深さが異なる有効桁数の型を実験\_形式\_R24G8\_DXGI と TYPELESS\_形式\_R16\_TYPELESS - で、速度と品質を確認別の機能レベル。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-124">Experiment with different depth precision types in your game - DXGI\_FORMAT\_R24G8\_TYPELESS versus DXGI\_FORMAT\_R16\_TYPELESS - and observe the speed and quality on different feature levels.</span></span>
-
-## <a name="optimizing-precompiled-shaders"></a><span data-ttu-id="3ea8a-125">プリコンパイル済みシェーダーの最適化</span><span class="sxs-lookup"><span data-stu-id="3ea8a-125">Optimizing precompiled shaders</span></span>
+## <a name="shadow-buffer-depth"></a><span data-ttu-id="5a923-121">シャドウ バッファーの深度</span><span class="sxs-lookup"><span data-stu-id="5a923-121">Shadow buffer depth</span></span>
 
 
-<span data-ttu-id="3ea8a-126">ユニバーサル Windows プラットフォーム (UWP) アプリでは動的シェーダー コンパイルを使うことができますが、動的シェーダー リンクを使う方が高速に処理できます。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-126">Universal Windows Platform (UWP) apps can use dynamic shader compilation, but it's faster to use dynamic shader linking.</span></span> <span data-ttu-id="3ea8a-127">また、コンパイラ ディレクティブと `#ifdef` ブロックを使って、異なるバージョンのシェーダーを作成することができます。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-127">You can also use compiler directives and `#ifdef` blocks to create different versions of shaders.</span></span> <span data-ttu-id="3ea8a-128">この処理を実行するには、テキスト エディターで Visual Studio プロジェクト ファイルを開き、HLSL の `<FxcCompiler>` エントリを (それぞれ適切なプリプロセッサの定義を含めて) 複数追加します。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-128">This is done by opening the Visual Studio project file in a text editor and adding multiple `<FxcCompiler>` entries for the HLSL (each with the appropriate preprocessor definitions).</span></span> <span data-ttu-id="3ea8a-129">別のファイル名; が必要になりますこのことに注意してください。この場合は、Visual Studio に追加\_ポイントと\_シェーダーの異なるバージョンを線形。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-129">Note that this necessitates different filenames; in this case, Visual Studio appends \_point and \_linear to the different versions of the shader.</span></span>
+<span data-ttu-id="5a923-122">シャドウ バッファーの精度を上げると、深度のテスト結果がより正確になり、z バッファー ファイティングなどの問題を避けるのに役立ちます。</span><span class="sxs-lookup"><span data-stu-id="5a923-122">Greater precision in the shadow buffer will give more accurate depth test results, which helps avoid issues like z-buffer fighting.</span></span> <span data-ttu-id="5a923-123">ただし、シャドウ マップを大きくした場合と同じように、精度を上げると、消費するメモリの量が多くなります。</span><span class="sxs-lookup"><span data-stu-id="5a923-123">But like larger shadow maps, greater precision takes up more memory.</span></span> <span data-ttu-id="5a923-124">ゲーム - DXGI の深さが異なる有効桁数の型を実験\_形式\_R24G8\_DXGI と TYPELESS\_形式\_R16\_TYPELESS - で、速度と品質を確認別の機能レベル。</span><span class="sxs-lookup"><span data-stu-id="5a923-124">Experiment with different depth precision types in your game - DXGI\_FORMAT\_R24G8\_TYPELESS versus DXGI\_FORMAT\_R16\_TYPELESS - and observe the speed and quality on different feature levels.</span></span>
 
-<span data-ttu-id="3ea8a-130">リニア フィルター処理を行ったバージョンのシェーダーのプロジェクト ファイル エントリでは、次のように、LINEAR を定義します。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-130">The project file entry for the linear filtered version of the shader defines LINEAR:</span></span>
+## <a name="optimizing-precompiled-shaders"></a><span data-ttu-id="5a923-125">プリコンパイル済みシェーダーの最適化</span><span class="sxs-lookup"><span data-stu-id="5a923-125">Optimizing precompiled shaders</span></span>
+
+
+<span data-ttu-id="5a923-126">ユニバーサル Windows プラットフォーム (UWP) アプリでは動的シェーダー コンパイルを使うことができますが、動的シェーダー リンクを使う方が高速に処理できます。</span><span class="sxs-lookup"><span data-stu-id="5a923-126">Universal Windows Platform (UWP) apps can use dynamic shader compilation, but it's faster to use dynamic shader linking.</span></span> <span data-ttu-id="5a923-127">また、コンパイラ ディレクティブと `#ifdef` ブロックを使って、異なるバージョンのシェーダーを作成することができます。</span><span class="sxs-lookup"><span data-stu-id="5a923-127">You can also use compiler directives and `#ifdef` blocks to create different versions of shaders.</span></span> <span data-ttu-id="5a923-128">この処理を実行するには、テキスト エディターで Visual Studio プロジェクト ファイルを開き、HLSL の `<FxcCompiler>` エントリを (それぞれ適切なプリプロセッサの定義を含めて) 複数追加します。</span><span class="sxs-lookup"><span data-stu-id="5a923-128">This is done by opening the Visual Studio project file in a text editor and adding multiple `<FxcCompiler>` entries for the HLSL (each with the appropriate preprocessor definitions).</span></span> <span data-ttu-id="5a923-129">別のファイル名; が必要になりますこのことに注意してください。この場合は、Visual Studio に追加\_ポイントと\_シェーダーの異なるバージョンを線形。</span><span class="sxs-lookup"><span data-stu-id="5a923-129">Note that this necessitates different filenames; in this case, Visual Studio appends \_point and \_linear to the different versions of the shader.</span></span>
+
+<span data-ttu-id="5a923-130">リニア フィルター処理を行ったバージョンのシェーダーのプロジェクト ファイル エントリでは、次のように、LINEAR を定義します。</span><span class="sxs-lookup"><span data-stu-id="5a923-130">The project file entry for the linear filtered version of the shader defines LINEAR:</span></span>
 
 ```xml
 <FxCompile Include="Content\ShadowPixelShader.hlsl">
@@ -149,7 +149,7 @@ return float4(input.color * (light + shadow), 1.f);
 </FxCompile>
 ```
 
-<span data-ttu-id="3ea8a-131">リニア フィルター処理を行ったバージョンのシェーダーのプロジェクト ファイル エントリには、次のように、プリプロセッサの定義を含めません。</span><span class="sxs-lookup"><span data-stu-id="3ea8a-131">The project file entry for the linear filtered version of the shader does not include preprocessor definitions:</span></span>
+<span data-ttu-id="5a923-131">リニア フィルター処理を行ったバージョンのシェーダーのプロジェクト ファイル エントリには、次のように、プリプロセッサの定義を含めません。</span><span class="sxs-lookup"><span data-stu-id="5a923-131">The project file entry for the linear filtered version of the shader does not include preprocessor definitions:</span></span>
 
 ```xml
 <FxCompile Include="Content\ShadowPixelShader.hlsl">
