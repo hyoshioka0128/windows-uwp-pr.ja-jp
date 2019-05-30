@@ -8,34 +8,34 @@ ms.date: 05/19/2017
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1e2a96169f44802c62f341029b9bc1c5eb7e31de
-ms.sourcegitcommit: b034650b684a767274d5d88746faeea373c8e34f
+ms.openlocfilehash: 4c743f68a5cbfd493f9d384166b62cbd494884ee
+ms.sourcegitcommit: ac7f3422f8d83618f9b6b5615a37f8e5c115b3c4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57647727"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66366039"
 ---
-# <a name="reposition-animations"></a><span data-ttu-id="01fdb-104">位置変更アニメーション</span><span class="sxs-lookup"><span data-stu-id="01fdb-104">Reposition animations</span></span>
+# <a name="reposition-animations"></a><span data-ttu-id="352bd-104">位置変更アニメーション</span><span class="sxs-lookup"><span data-stu-id="352bd-104">Reposition animations</span></span>
 
 
 
-<span data-ttu-id="01fdb-105">位置変更アニメーションを使って、1 つまたは複数の要素を新しい位置に移動します。</span><span class="sxs-lookup"><span data-stu-id="01fdb-105">Use the reposition animation to move an element or elements into a new position.</span></span>
+<span data-ttu-id="352bd-105">位置変更アニメーションを使って、1 つまたは複数の要素を新しい位置に移動します。</span><span class="sxs-lookup"><span data-stu-id="352bd-105">Use the reposition animation to move an element or elements into a new position.</span></span>
 
-> <span data-ttu-id="01fdb-106">**重要な API**:[**RepositionThemeAnimation クラス**](https://msdn.microsoft.com/library/windows/apps/br210421)、 [ **RepositionThemeTransition クラス**](https://msdn.microsoft.com/library/windows/apps/br210429)</span><span class="sxs-lookup"><span data-stu-id="01fdb-106">**Important APIs**: [**RepositionThemeAnimation class**](https://msdn.microsoft.com/library/windows/apps/br210421), [**RepositionThemeTransition class**](https://msdn.microsoft.com/library/windows/apps/br210429)</span></span>
+> <span data-ttu-id="352bd-106">**重要な API**:[**RepositionThemeAnimation クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation)、 [ **RepositionThemeTransition クラス**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)</span><span class="sxs-lookup"><span data-stu-id="352bd-106">**Important APIs**: [**RepositionThemeAnimation class**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation), [**RepositionThemeTransition class**](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)</span></span>
 
-## <a name="dos-and-donts"></a><span data-ttu-id="01fdb-107">推奨と非推奨</span><span class="sxs-lookup"><span data-stu-id="01fdb-107">Do's and don'ts</span></span>
-
-
--   <span data-ttu-id="01fdb-108">エッジに基づく UI を表示または非表示にする場合、[エッジに基づく UI アニメーション](motion-edgebased.md)を使います。</span><span class="sxs-lookup"><span data-stu-id="01fdb-108">If you're showing or hiding edge-based UI, use [edge-based UI animations](motion-edgebased.md).</span></span> <span data-ttu-id="01fdb-109">エッジに基づく UI とは、画面の端の 1 つに固定された要素またはコンテナーを指します。</span><span class="sxs-lookup"><span data-stu-id="01fdb-109">Edge-based UI is an element or container that is anchored at one edge of the screen.</span></span>
+## <a name="dos-and-donts"></a><span data-ttu-id="352bd-107">推奨と非推奨</span><span class="sxs-lookup"><span data-stu-id="352bd-107">Do's and don'ts</span></span>
 
 
-## <a name="related-articles"></a><span data-ttu-id="01fdb-110">関連記事</span><span class="sxs-lookup"><span data-stu-id="01fdb-110">Related articles</span></span>
+-   <span data-ttu-id="352bd-108">エッジに基づく UI を表示または非表示にする場合、[エッジに基づく UI アニメーション](motion-edgebased.md)を使います。</span><span class="sxs-lookup"><span data-stu-id="352bd-108">If you're showing or hiding edge-based UI, use [edge-based UI animations](motion-edgebased.md).</span></span> <span data-ttu-id="352bd-109">エッジに基づく UI とは、画面の端の 1 つに固定された要素またはコンテナーを指します。</span><span class="sxs-lookup"><span data-stu-id="352bd-109">Edge-based UI is an element or container that is anchored at one edge of the screen.</span></span>
 
-* [<span data-ttu-id="01fdb-111">アニメーションの概要</span><span class="sxs-lookup"><span data-stu-id="01fdb-111">Animations overview</span></span>](https://msdn.microsoft.com/library/windows/apps/mt187350)
-* [<span data-ttu-id="01fdb-112">位置を変更をアニメーション化</span><span class="sxs-lookup"><span data-stu-id="01fdb-112">Animating repositions</span></span>](https://msdn.microsoft.com/library/windows/apps/xaml/jj649434)
-* [<span data-ttu-id="01fdb-113">クイック スタート:Library のアニメーションを使用して、UI をアニメーション化</span><span class="sxs-lookup"><span data-stu-id="01fdb-113">Quickstart: Animating your UI using library animations</span></span>](https://msdn.microsoft.com/library/windows/apps/xaml/hh452703)
-* [<span data-ttu-id="01fdb-114">**RepositionThemeAnimation クラス**</span><span class="sxs-lookup"><span data-stu-id="01fdb-114">**RepositionThemeAnimation class**</span></span>](https://msdn.microsoft.com/library/windows/apps/br210421)
-* [<span data-ttu-id="01fdb-115">**RepositionThemeTransition クラス**</span><span class="sxs-lookup"><span data-stu-id="01fdb-115">**RepositionThemeTransition class**</span></span>](https://msdn.microsoft.com/library/windows/apps/br210429)
+
+## <a name="related-articles"></a><span data-ttu-id="352bd-110">関連記事</span><span class="sxs-lookup"><span data-stu-id="352bd-110">Related articles</span></span>
+
+* [<span data-ttu-id="352bd-111">アニメーションの概要</span><span class="sxs-lookup"><span data-stu-id="352bd-111">Animations overview</span></span>](https://docs.microsoft.com/windows/uwp/graphics/animations-overview)
+* <span data-ttu-id="352bd-112">[位置を変更をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/jj649434(v=win.10))</span><span class="sxs-lookup"><span data-stu-id="352bd-112">[Animating repositions](https://docs.microsoft.com/previous-versions/windows/apps/jj649434(v=win.10))</span></span>
+* <span data-ttu-id="352bd-113">[クイック スタート:Library のアニメーションを使用して、UI をアニメーション化](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))</span><span class="sxs-lookup"><span data-stu-id="352bd-113">[Quickstart: Animating your UI using library animations](https://docs.microsoft.com/previous-versions/windows/apps/hh452703(v=win.10))</span></span>
+* [<span data-ttu-id="352bd-114">**RepositionThemeAnimation クラス**</span><span class="sxs-lookup"><span data-stu-id="352bd-114">**RepositionThemeAnimation class**</span></span>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation)
+* [<span data-ttu-id="352bd-115">**RepositionThemeTransition クラス**</span><span class="sxs-lookup"><span data-stu-id="352bd-115">**RepositionThemeTransition class**</span></span>](https://docs.microsoft.com/uwp/api/Windows.UI.Xaml.Media.Animation.RepositionThemeTransition)
 
 
  
