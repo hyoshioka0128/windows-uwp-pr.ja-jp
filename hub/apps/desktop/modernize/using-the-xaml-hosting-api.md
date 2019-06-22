@@ -3,7 +3,7 @@ description: この記事では、お客様のデスクトップ アプリケー
 title: デスクトップ アプリケーションで API をホストしている UWP XAML を使用します。
 ms.date: 04/16/2019
 ms.topic: article
-keywords: windows 10、uwp、windows フォーム、wpf、win32、xaml 諸島
+keywords: windows 10、uwp、windows フォーム、wpf、win32、xaml islands
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
@@ -19,10 +19,10 @@ ms.locfileid: "66215140"
 
 以降では、Windows 10、バージョンが 1903、デスクトップ アプリケーションを UWP 以外 (WPF、Windows フォームなどとC++Win32 アプリケーション) を使用できます、 *API をホストしている UWP XAML*に関連付けられている任意の UI 要素に UWP コントロールをホストする、ウィンドウ ハンドル (HWND)。 この API は、のみ UWP コントロールを使用して利用できる最新の Windows 10 の UI 機能を使用するデスクトップ アプリケーションを UWP 以外を使用できます。 デスクトップ アプリケーションを UWP 以外が使用する UWP コントロールをホストするには、この API を使用するなど、 [Fluent Design System](/windows/uwp/design/fluent-design-system/index)サポートと[Windows インク](/windows/uwp/design/pen-and-stylus-interactions)します。
 
-API をホストしている UWP XAML では、開発者がデスクトップ アプリケーションを UWP 以外に Fluent UI を表示できるようにするコントロールの広範なセットの基盤を提供します。 この機能は呼*XAML 諸島*します。 この機能の概要については、次を参照してください。[デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md)します。
+API をホストしている UWP XAML では、開発者がデスクトップ アプリケーションを UWP 以外に Fluent UI を表示できるようにするコントロールの広範なセットの基盤を提供します。 この機能は*XAML Islands*呼ばれます。 この機能の概要については、次を参照してください。[デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md)します。
 
 > [!NOTE]
-> XAML 諸島に関するフィードバックをした場合で新しい問題を作成、 [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)がコメントを残すとします。 プライベート フィードバックを送信する場合に送信できますXamlIslandsFeedback@microsoft.comします。 Insights とシナリオは弊社にとって非常に重要です。
+> XAML Islandsに関するフィードバックをした場合で新しい問題を作成、 [Microsoft.Toolkit.Win32 リポジトリ](https://github.com/windows-toolkit/Microsoft.Toolkit.Win32/issues)がコメントを残すとします。 プライベート フィードバックを送信する場合に送信できますXamlIslandsFeedback@microsoft.comします。 Insights とシナリオは弊社にとって非常に重要です。
 
 ## <a name="should-you-use-the-uwp-xaml-hosting-api"></a>API をホストしている UWP XAML を使用する必要がありますか。
 
@@ -39,17 +39,17 @@ API をホストしている UWP XAML は、デスクトップ アプリケー�
 API をホストしている UWP XAML では、これらの前提条件があります。
 
 * Windows 10、バージョンが 1903 (またはそれ以降) と、対応する Windows SDK のビルドします。
-* Windows ランタイム Api を使用し、次の XAML 諸島を有効にするプロジェクトを構成する[手順](xaml-islands.md#requirements)します。
+* Windows ランタイム Api を使用し、次の XAML Islandsを有効にするプロジェクトを構成する[手順](xaml-islands.md#requirements)します。
 
-## <a name="architecture-of-xaml-islands"></a>XAML 諸島のアーキテクチャ
+## <a name="architecture-of-xaml-islands"></a>XAML Islandsのアーキテクチャ
 
 API をホストしている UWP XAML には、これらのメインの Windows ランタイム型および COM インターフェイスが含まれています。
 
 * [**WindowsXamlManager**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager)します。 このクラスは、UWP XAML フレームワークを表します。 このクラスは、単一の静的な[ **InitializeForCurrentThread** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread)デスクトップ アプリケーションでは、現在のスレッドで UWP XAML フレームワークを初期化するメソッド。
 
-* [**DesktopWindowXamlSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)します。 このクラスは、お客様のデスクトップ アプリケーションでホストしている UWP XAML コンテンツのインスタンスを表します。 このクラスの最も重要なメンバーは、 [**コンテンツ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content)プロパティ。 このプロパティに割り当てる、 [ **Windows.UI.Xaml.UIElement** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)をホストします。 このクラスには、ルーティングのキーボード フォーカスのナビゲーションに、および XAML 諸島からの他のメンバーもあります。
+* [**DesktopWindowXamlSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)します。 このクラスは、お客様のデスクトップ アプリケーションでホストしている UWP XAML コンテンツのインスタンスを表します。 このクラスの最も重要なメンバーは、 [**コンテンツ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content)プロパティ。 このプロパティに割り当てる、 [ **Windows.UI.Xaml.UIElement** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)をホストします。 このクラスには、ルーティングのキーボード フォーカスのナビゲーションに、および XAML からの他のメンバーもあります。
 
-* **IDesktopWindowXamlSourceNative**と**IDesktopWindowXamlSourceNative2** COM インターフェイスです。 **IDesktopWindowXamlSourceNative**提供、 **AttachToWindow**メソッドは、親の UI 要素に、アプリケーションで XAML の島をアタッチするために使用します。 **IDesktopWindowXamlSourceNative2**提供、 **PreTranslateMessage**メソッドで、特定の Windows メッセージを正しく処理するため、UWP XAML フレームワークを使用します。
+* **IDesktopWindowXamlSourceNative**と**IDesktopWindowXamlSourceNative2** COM インターフェイスです。 **IDesktopWindowXamlSourceNative**提供、 **AttachToWindow**メソッドは、親の UI 要素に、アプリケーションで XAML Island をアタッチするために使用します。 **IDesktopWindowXamlSourceNative2**提供、 **PreTranslateMessage**メソッドで、特定の Windows メッセージを正しく処理するため、UWP XAML フレームワークを使用します。
     > [!NOTE]
     > これらのインターフェイスが宣言されている、 **windows.ui.xaml.hosting.desktopwindowxamlsource.h** Windows sdk ヘッダー ファイル。 既定では、このファイルは、%programfiles (x86) %\Windows Kits\10\Include で\\< ビルド番号\>\um します。 C++ Win32 プロジェクトでは、このヘッダー ファイルを直接参照することができます。 WPF や Windows フォーム プロジェクトでは、アプリケーション コードを使用してインターフェイスを宣言する必要があります、 [ **ComImport** ](https://docs.microsoft.com/dotnet/api/system.runtime.interopservices.comimportattribute)属性。 インターフェイスの宣言内の宣言を正確に一致するかどうかを確認**windows.ui.xaml.hosting.desktopwindowxamlsource.h**します。
 
@@ -57,9 +57,9 @@ API をホストしている UWP XAML には、これらのメインの Windows 
 
 ![DesktopWindowXamlSource アーキテクチャ](images/xaml-islands/xaml-hosting-api-rev2.png)
 
-* 基本レベルで XAML の島をホストするアプリケーションで UI 要素は、します。 この UI 要素には、ウィンドウ ハンドル (HWND) が必要です。 XAML の島をホストできる UI 要素の例として、 [ **System.Windows.Interop.HwndHost** ](https://docs.microsoft.com/dotnet/api/system.windows.interop.hwndhost) WPF アプリケーション、 [ **System.Windows.Forms.Control**](https://docs.microsoft.com/dotnet/api/system.windows.forms.control) Windows フォーム アプリケーションの場合、[ウィンドウ](https://docs.microsoft.com/windows/desktop/winmsg/about-windows)のC++Win32 アプリケーション。
+* 基本レベルで XAML Island をホストするアプリケーションで UI 要素は、します。 この UI 要素には、ウィンドウ ハンドル (HWND) が必要です。 XAML Island をホストできる UI 要素の例として、 [ **System.Windows.Interop.HwndHost** ](https://docs.microsoft.com/dotnet/api/system.windows.interop.hwndhost) WPF アプリケーション、 [ **System.Windows.Forms.Control**](https://docs.microsoft.com/dotnet/api/system.windows.forms.control) Windows フォーム アプリケーションの場合、[ウィンドウ](https://docs.microsoft.com/windows/desktop/winmsg/about-windows)のC++Win32 アプリケーション。
 
-* レベルは、次を**DesktopWindowXamlSource**オブジェクト。 このオブジェクトは、XAML の島をホストするためのインフラストラクチャを提供します。 コードは、このオブジェクトを作成し、親の UI 要素にアタッチします。
+* レベルは、次を**DesktopWindowXamlSource**オブジェクト。 このオブジェクトは、XAML Island をホストするためのインフラストラクチャを提供します。 コードは、このオブジェクトを作成し、親の UI 要素にアタッチします。
 
 * 作成するときに、 **DesktopWindowXamlSource**、このオブジェクトは、UWP コントロールをホストするネイティブの子ウィンドウを自動的に作成されます。 このネイティブ子ウィンドウはほとんどの場合、コードから抽象化されていますが、そのハンドル (HWND) に必要な場合にアクセスできます。
 
@@ -170,11 +170,11 @@ API をホストしている UWP XAML を使用して、アプリケーション
 
 ## <a name="handle-keyboard-input-and-focus-navigation"></a>キーボードの入力とフォーカスのナビゲーションを処理します。
 
-アプリで XAML 諸島をホストするときに、キーボードの入力とフォーカスのナビゲーションを正しく処理するために必要ないくつかの点があります。
+アプリで XAML Islandsをホストするときに、キーボードの入力とフォーカスのナビゲーションを正しく処理するために必要ないくつかの点があります。
 
 ### <a name="keyboard-input"></a>キーボード入力
 
-各 XAML 島のキーボード入力を正しく処理するには、アプリケーションは特定のメッセージを正しく処理できるように、UWP XAML フレームワークにすべての Windows メッセージを渡す必要があります。 メッセージ ループがアクセスできるアプリケーション内の場所、キャスト、 **DesktopWindowXamlSource**オブジェクトの各 XAML 島、 **IDesktopWindowXamlSourceNative2** COM インターフェイスです。 次に呼び出す、 **PreTranslateMessage**メソッドのこのインターフェイスと現在のメッセージを渡します。
+各 XAML Island のキーボード入力を正しく処理するには、アプリケーションは特定のメッセージを正しく処理できるように、UWP XAML フレームワークにすべての Windows メッセージを渡す必要があります。 メッセージ ループがアクセスできるアプリケーション内の場所、キャスト、 **DesktopWindowXamlSource**オブジェクトの各 XAML Island 、 **IDesktopWindowXamlSourceNative2** COM インターフェイスです。 次に呼び出す、 **PreTranslateMessage**メソッドのこのインターフェイスと現在のメッセージを渡します。
 
   * A C++ Win32 アプリケーションで呼び出すことができます**PreTranslateMessage**メイン メッセージ ループで直接します。 例については、次を参照してください。、 [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L61)でコード ファイル、 [ C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island)します。
 
@@ -202,7 +202,7 @@ API をホストしている UWP XAML では、これらのタスクを達成す
 
 ユーザーが親の UI 要素のサイズを変更した UWP コントロールが期待どおりに表示していることを確認するために必要なレイアウト変更を処理する必要があります。 考慮すべき重要なシナリオを以下に示します。
 
-* C++ Win32 アプリケーション、アプリケーションを使用してホストされている XAML 島を再配置できますが、WM_SIZE メッセージを処理する際に、 [SetWindowPos](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos)関数。 例については、次を参照してください。、 [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L191)でコード ファイル、 [ C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island)します。
+* C++ Win32 アプリケーション、アプリケーションを使用してホストされている XAML Island を再配置できますが、WM_SIZE メッセージを処理する際に、 [SetWindowPos](https://docs.microsoft.com/windows/desktop/api/winuser/nf-winuser-setwindowpos)関数。 例については、次を参照してください。、 [SampleApp.cpp](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island/SampleCppApp/SampleApp.cpp#L191)でコード ファイル、 [ C++ Win32 サンプル](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island)します。
 
 * 親の UI 要素が収まる四角形領域のサイズを取得する必要がある場合、 **Windows.UI.Xaml.UIElement**でホストしている、 **DesktopWindowXamlSource**を呼び出し、 [**メジャー** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement.measure)のメソッド、 **Windows.UI.Xaml.UIElement**します。 次に、例を示します。
 
@@ -274,4 +274,4 @@ UWP XAML フレームワークは、(たとえば、さまざまな画面の DPI
 ## <a name="related-topics"></a>関連トピック
 
 * [デスクトップ アプリケーションでの UWP コントロール](xaml-islands.md)
-* [C++Win32 XAML 諸島サンプル](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island)
+* [C++Win32 XAML Islandsサンプル](https://github.com/marb2000/XamlIslands/blob/master/19H1_Insider_Samples/CppWin32App_With_Island)
