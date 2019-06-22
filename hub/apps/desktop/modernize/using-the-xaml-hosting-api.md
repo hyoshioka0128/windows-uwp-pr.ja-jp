@@ -47,7 +47,7 @@ API をホストしている UWP XAML には、これらのメインの Windows 
 
 * [**WindowsXamlManager**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager)します。 このクラスは、UWP XAML フレームワークを表します。 このクラスは、単一の静的な[ **InitializeForCurrentThread** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread)デスクトップ アプリケーションでは、現在のスレッドで UWP XAML フレームワークを初期化するメソッド。
 
-* [**DesktopWindowXamlSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)します。 このクラスは、お客様のデスクトップ アプリケーションでホストしている UWP XAML コンテンツのインスタンスを表します。 このクラスの最も重要なメンバーは、 [**コンテンツ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content)プロパティ。 このプロパティに割り当てる、 [ **Windows.UI.Xaml.UIElement** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)をホストします。 このクラスには、ルーティングのキーボード フォーカスのナビゲーションに、および XAML からの他のメンバーもあります。
+* [**DesktopWindowXamlSource**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource)します。 このクラスは、お客様のデスクトップ アプリケーションでホストしている UWP XAML コンテンツのインスタンスを表します。 このクラスの最も重要なメンバーは、 [**コンテンツ**](https://docs.microsoft.com/uwp/api/windows.ui.xaml.hosting.desktopwindowxamlsource.content)プロパティ。 このプロパティに割り当てる、 [ **Windows.UI.Xaml.UIElement** ](https://docs.microsoft.com/uwp/api/windows.ui.xaml.uielement)をホストします。 このクラスには、ルーティングのキーボード フォーカスのナビゲーションに、および XAML Islandsからの他のメンバーもあります。
 
 * **IDesktopWindowXamlSourceNative**と**IDesktopWindowXamlSourceNative2** COM インターフェイスです。 **IDesktopWindowXamlSourceNative**提供、 **AttachToWindow**メソッドは、親の UI 要素に、アプリケーションで XAML Island をアタッチするために使用します。 **IDesktopWindowXamlSourceNative2**提供、 **PreTranslateMessage**メソッドで、特定の Windows メッセージを正しく処理するため、UWP XAML フレームワークを使用します。
     > [!NOTE]
